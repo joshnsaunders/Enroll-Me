@@ -1,0 +1,334 @@
+#map {
+  height: 610px;
+}
+
+#wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 67% 33%;
+}
+
+/*.material-icons{
+  font-size:40px;
+}*/
+
+/*.tiny {
+  size: 1rem;
+}*/
+.tiny {
+font-size: 15px !important;
+/*height: 18px !important;
+width: 18px !important;*/
+}
+.wickedTiny {
+  font-size:8px !important;
+}
+
+
+.inputs {
+  position: absolute;
+  top: 10px;
+  background-color: white;
+  border: black 1px solid;
+  padding: 3px;
+  height: 6%;
+  z-index: 99;
+}
+#checkboxes {
+  left: 37%;
+  height: 6%;
+}
+
+#textForm {
+  left: 11%;
+  width: 22%;
+}
+
+#textInput {
+  height: 88%;
+  width: 95%;
+}
+
+#navLogo, #footLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Cabin;
+  font-size: 2.3em;
+}
+#home, #about, #faq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Kameron;
+  font-size: 1.2em;
+  margin-right: 4px;
+}
+.navFoot {
+  display: grid;
+  background-color: #a2cff9;
+}
+.foot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Text Me One;
+  font-size: 1.2em;
+}
+nav {
+  grid-template-columns: 25% 47% 8% 8% 8% 4%;
+  margin-bottom: 5px;
+  height:75px;
+}
+footer {
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  margin-top: 5px;
+  height:75px;
+}
+
+#navDescription {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-family: Kameron;
+  font-size: 2.2em;
+  margin-left: 0px;
+  padding-left: 37px;
+  color: white;
+}
+
+#schoolCard {
+  display: grid;
+  grid-template-rows: 18% 8% 11% 11% 11% 11% 7.5% 7.5% 7.5% 5.5%;
+  grid-gap: 2%;
+  text-align: center;
+  margin-left: 4%;
+  margin-right:4%;
+}
+.cardIndicator{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.1em;
+}
+.blueIndicator {
+  color: blue;
+  border-bottom: 2px blue solid;
+  border-top: 2px blue solid;
+  font-size:1.5em;
+  /*font-weight: bold;*/
+}
+.grayIndicator {
+  color: gray;
+  border-bottom: 2px gray solid;
+  border-top: 2px gray solid;
+  font-size:1.5em;
+}
+.orangeIndicator {
+  color: orange;
+  border-bottom: 2px orange solid;
+  border-top: 2px orange solid;
+  font-size:1.5em;
+}
+.yellowIndicator {
+  color: yellow;
+  background-color: #c9c7c7;
+  border-bottom: 2px yellow solid;
+  border-top: 2px yellow solid;
+  font-size:1.5em;
+}
+.redIndicator {
+  color: red;
+  border-bottom: 2px red solid;
+  border-top: 2px red solid;
+  font-size: 1.4em;
+}
+.greenIndicator {
+  color: green;
+  border-bottom: 2px green solid;
+  border-top: 2px green solid;
+  font-size:1.5em;
+}
+.cardName {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  letter-spacing: 0.02em;
+}
+#addressGrade {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: center;
+  grid-gap:2%;
+}
+#gradesCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  border: 1px solid black;
+  font-size: 1.6em;
+}
+#gradesKeyCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  border: 1px solid black;
+  font-size: 1.5em;
+}
+
+
+
+#addressCards {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  border: 1px solid black;
+}
+#address{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  border: 1px solid black;
+  font-size:1.7em;
+}
+
+
+
+#titlePercentage {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgreen;
+  border: 1px solid black;
+  font-size: 1.8em;
+}
+#keyPercentage {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgreen;
+  border: 1px solid black;
+  font-size: 1.1em;
+}
+
+
+/*4th line of sidebar data card*/
+#phoneOperatorCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2%;
+}
+#phoneCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  background-color: lightpink;
+  border: 1px solid black;
+  /*line-height: 200%;*/
+}
+#operatorCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  background-color: lightblue;
+  border: 1px solid black;
+}
+/*5th line of the school data card */
+#parentSatisfactionCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgreen;
+  border: 1px black solid;
+  font-size: 1.25em;
+}
+/*6th line of the school data card*/
+#equityCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  border: 1px solid black;
+  font-size: 1.25em;
+}
+#dataDate {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: kameron;
+  font-size: 0.65em;
+  border: 1px solid black;
+}
+#enrollmentCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgreen;
+  border: 1px solid black;
+  font-size: 1em;
+}
+
+#lunchColorCard, #ellSpedCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2%;
+}
+#frlCard, #socCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  border: 1px solid black;
+  font-size: .8em;
+}
+
+#ellCard, #spedCard {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  border: 1px solid black;
+  text-align: center;
+  font-size: .7em;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: gray;
+}
+
+
+
+aside {
+  display: grid;
+  grid-template-rows: 70% 30%;
+  font-family: Kameron;
+}
+
+#data {
+  display: flex;
+  justify-content: center;
+}
+
+#gradeInfo {
+  text-align: center;
+  border-bottom: black solid 1px;
+  border-top: black solid 1px;
+  font-family: Kameron;
+  font-size: 1em;
+}
