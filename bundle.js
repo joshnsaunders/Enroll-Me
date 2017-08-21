@@ -73,7 +73,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var keys = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* schoolData */])
-var zoomIcons = [null, "hiya!", "hiya!again"]
 var sideBarKey = __WEBPACK_IMPORTED_MODULE_0__data_js__["a" /* deft */]
 
 $('#schoolCard').html("<div class=" + sideBarKey["cssName"] + ">" + sideBarKey["link"] + sideBarKey["name"] + "</a>" + '</div>' +
@@ -206,10 +205,30 @@ function initMap() {
   $('body').click(function(){
     var zoomLevel = map.getZoom();
     console.log(zoomLevel);
+    var iconKeys = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */])
+    console.log(iconKeys);
+    for (var j=0;j<iconKeys.length;j++){
+      if(zoomLevel>=13){
+        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"] = 0.7;
+        console.log(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"]);
+
+      }
+      else if (zoomLevel === 12){
+        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"] = 0.4;
+        console.log(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"]);
+
+      }
+      else if(zoomLevel <=11){
+        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"] = 0.2;
+        console.log(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"]);
+
+      }
+    }
+
+
     for (var i=0;i<keys.length;i++){
       if(zoomLevel>=13){
-        keys[i]["icon"] === __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dps" + "'" + keys[i]["color"] + "'"];
-        keys[i].setIcon(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefault"]);
+       keys[i].setIcon(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefault"]);
         keys[i]["labelClass"] = "material-icons";
         keys[i]["labelAnchor"] = new google.maps.Point(12, 30);
       } else if(zoomLevel===12){
@@ -382,7 +401,7 @@ var icons = {
     fillOpacity: 0.6,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7
+    scale: 0.4
   },
   dpsDefaultTiny:{
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -406,7 +425,7 @@ var icons = {
     fillOpacity: 0.6,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7
+    scale: 0.4
   },
   dpsGreen: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -414,7 +433,7 @@ var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsBlue: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -423,7 +442,7 @@ var icons = {
     strokeColor: '',
     strokeWeight: 0.5,
     value: "blue",
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsRed: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -431,7 +450,7 @@ var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsYellow: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -439,7 +458,7 @@ var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsOrange: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -447,7 +466,7 @@ var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
 }
 

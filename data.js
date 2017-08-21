@@ -5,7 +5,7 @@ export var icons = {
     fillOpacity: 0.6,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7
+    scale: 0.4
   },
   dpsDefaultTiny:{
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -29,7 +29,7 @@ export var icons = {
     fillOpacity: 0.6,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7
+    scale: 0.4
   },
   dpsGreen: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -37,7 +37,7 @@ export var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsBlue: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -46,7 +46,7 @@ export var icons = {
     strokeColor: '',
     strokeWeight: 0.5,
     value: "blue",
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsRed: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -54,7 +54,7 @@ export var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsYellow: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -62,7 +62,7 @@ export var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
   dpsOrange: {
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
@@ -70,7 +70,7 @@ export var icons = {
     fillOpacity: 0.9,
     strokeColor: '',
     strokeWeight: 0.5,
-    scale: 0.7,
+    scale: 0.4,
   },
 }
 

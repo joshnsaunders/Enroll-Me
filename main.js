@@ -5,7 +5,6 @@ import {
 } from './data.js';
 
 var keys = Object.keys(schoolData)
-var zoomIcons = [null, "hiya!", "hiya!again"]
 var sideBarKey = deft
 
 $('#schoolCard').html("<div class=" + sideBarKey["cssName"] + ">" + sideBarKey["link"] + sideBarKey["name"] + "</a>" + '</div>' +
@@ -138,13 +137,30 @@ function initMap() {
   $('body').click(function(){
     var zoomLevel = map.getZoom();
     console.log(zoomLevel);
-    // for (var i=0;i<)
+    var iconKeys = Object.keys(icons)
+    console.log(iconKeys);
+    for (var j=0;j<iconKeys.length;j++){
+      if(zoomLevel>=13){
+        icons[iconKeys[j]]["scale"] = 0.7;
+        console.log(icons[iconKeys[j]]["scale"]);
 
+      }
+      else if (zoomLevel === 12){
+        icons[iconKeys[j]]["scale"] = 0.4;
+        console.log(icons[iconKeys[j]]["scale"]);
+
+      }
+      else if(zoomLevel <=11){
+        icons[iconKeys[j]]["scale"] = 0.2;
+        console.log(icons[iconKeys[j]]["scale"]);
+
+      }
+    }
 
 
     for (var i=0;i<keys.length;i++){
       if(zoomLevel>=13){
-        keys[i].setIcon(icons["dpsDefault"]);
+       keys[i].setIcon(icons["dpsDefault"]);
         keys[i]["labelClass"] = "material-icons";
         keys[i]["labelAnchor"] = new google.maps.Point(12, 30);
       } else if(zoomLevel===12){
