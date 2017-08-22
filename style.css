@@ -8,17 +8,8 @@
   grid-template-columns: 67% 33%;
 }
 
-/*.material-icons{
-  font-size:40px;
-}*/
-
-/*.tiny {
-  size: 1rem;
-}*/
 .tiny {
 font-size: 15px !important;
-/*height: 18px !important;
-width: 18px !important;*/
 }
 .wickedTiny {
   font-size:8px !important;
