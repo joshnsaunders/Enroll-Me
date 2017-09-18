@@ -4,37 +4,102 @@ import {
   deft
 } from './data.js';
 
+import * as spfData from './spfData.json';
+import * as schoolInfoData from './schoolInfoData.json'
+
+var schoolDataArray = [];
+
+for (var i=0;i<spfData.length;i++){
+  for (var j=0;j<schoolInfoData.length;j++){
+    if (spfData[i]["School Number"]===schoolInfoData[j]["SchoolNumber"]){
+      schoolDataArray.push(
+        {
+        // position: schoolData[keys[i]]["position"],
+        icon: icons["dpsDefaultTiny"],
+        draggable: false,
+        raiseOnDrag: false,
+        map: map,
+        labelContent: "school",
+        // // labelAnchor: new google.maps.Point(7.5, 18),
+        labelClass: "tiny material-icons",
+        labelStyle: {
+          opacity: 0.75
+        },
+        // color: spfData[i]["hover"],
+        // infoBox: new google.maps.InfoWindow({
+        content: '<div><strong>' + spfData[i]["School Name"] + '</strong></div><div>' + schoolInfoData[j]["Phone"] + '</div>',
+        // }),
+        number:spfData[i]["School Number"],
+        name:spfData[i]["School Name"],
+        overallPercentage:spfData[i]["% Earned Points"],
+        overallDescriptor:spfData[i]["SPF Rating"],
+        grades:schoolInfoData[j]["GradeLevels"],
+        address:schoolInfoData[j]["Address"],
+        link:'<a href = ' + '"' + schoolInfoData[j]["WebUrl"] + '"' + ' target="_blank">',
+        operator:"?",
+        parentSatisfactionPercentage:spfData[i]["Parent and Student Engagement & Satisfaction % Pts"],
+        parentSatisfactionIndicator:spfData[i]["Parent and Student Engagement & Satisfaction Stoplight"],
+        equityPercentage:spfData[i]["Equity Indicator % Pts"],
+        equityIndicator:spfData[i]["Equity Indicator Stoplight"],
+        phone:schoolInfoData[j]["Phone"],
+        enrollment:spfData[i]["Enrollment"],
+        frl:spfData[i]["% FRL"],
+        soc:spfData[i]["% Students of Color"],
+        ell:spfData[i]["% ELL"],
+        sped:spfData[i]["% SPED"],
+        // cssIndicator: schoolData[keys[i]]["cssIndicator"],
+        cssName: "cardName",
+        smallIcon:icons["dpsDefaultTiny"],
+    })
+    }
+  }
+}
+console.log(schoolDataArray);
+//semi-colons!!!!
+//more accessible with main/sections/articles and other accessibility features
+$('#schoolCard').hide()
+$('#map').click(function(){
+  $('#schoolCard').hide()
+})
+$('#navCard').hide()
+$('#hamburger').click(function(){
+  $('#navCard').toggle('slide',{direction:'left'}, 300)
+})
+$('#sideBarX').click(function(){
+  $('#navCard').toggle('slide',{direction:'left'}, 300)
+})
+
 var keys = Object.keys(schoolData)
 var sideBarKey = deft
 
-$('#schoolCard').html("<div class=" + sideBarKey["cssName"] + ">" + sideBarKey["link"] + sideBarKey["name"] + "</a>" + '</div>' +
-
-  '<div class="' + sideBarKey["cssIndicator"] + '">' + "<span id='titleDescriptor'>" + "DPS Assigned Grade" + "</span></div>" +
-
-  '<div id="addressGrade"><span id="gradesKeyCard">' + sideBarKey["grades"] + "</span>" +
-
-  "<span id='address'>" + sideBarKey["address"] + "</span>" +
-
-  "<span id='keyPercentage'>" + "DPS<br>Score" + "</span></div>" +
-
-  "<div id='phoneOperatorCard'><span id='phoneCard'>" + sideBarKey["phone"] + "</span>" +
-
-  "<span id='operatorCard'>" + sideBarKey["operator"] + "</span></div>" +
-
-  "<div id='parentSatisfactionCard'>Parent Satisfaction Grade & Percentage</div>" +
-
-  "<div id='equityCard'>" + "Equity Grade & Percentage" + "</div>" +
-
-  "<div id='enrollmentCard'>" + sideBarKey["enrollment"] + "</div>" +
-
-  "<div id='lunchColorCard'><span id='frlCard'>Free or Reduced Lunch</span>" +
-  "<span id='socCard'>Students of Color</span></div>" +
-
-  "<div id='ellSpedCard'><span id='ellCard'>English Language Learners</span>" +
-
-  "<span id='spedCard'>Special Education</span></div>" +
-
-  "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>")
+// $('#schoolCard').html("<div class=" + sideBarKey["cssName"] + ">" + sideBarKey["link"] + sideBarKey["name"] + "</a>" + '</div>' +
+//
+//   '<div class="' + sideBarKey["cssIndicator"] + '">' + "<span id='titleDescriptor'>" + "DPS Assigned Grade" + "</span></div>" +
+//
+//   '<div id="addressGrade"><span id="gradesKeyCard">' + sideBarKey["grades"] + "</span>" +
+//
+//   "<span id='address'>" + sideBarKey["address"] + "</span>" +
+//
+//   "<span id='keyPercentage'>" + "DPS<br>Score" + "</span></div>" +
+//
+//   "<div id='phoneOperatorCard'><span id='phoneCard'>" + sideBarKey["phone"] + "</span>" +
+//
+//   "<span id='operatorCard'>" + sideBarKey["operator"] + "</span></div>" +
+//
+//   "<div id='parentSatisfactionCard'>Parent Satisfaction Grade & Percentage</div>" +
+//
+//   "<div id='equityCard'>" + "Equity Grade & Percentage" + "</div>" +
+//
+//   "<div id='enrollmentCard'>" + sideBarKey["enrollment"] + "</div>" +
+//
+//   "<div id='lunchColorCard'><span id='frlCard'>Free or Reduced Lunch</span>" +
+//   "<span id='socCard'>Students of Color</span></div>" +
+//
+//   "<div id='ellSpedCard'><span id='ellCard'>English Language Learners</span>" +
+//
+//   "<span id='spedCard'>Special Education</span></div>" +
+//
+//   "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>")
 
 
 
@@ -46,6 +111,11 @@ function initMap() {
       lat:39.740318,
       lng:-104.920328,
     },
+    mapTypeControl: true,
+mapTypeControlOptions: {
+    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+    position: google.maps.ControlPosition.BOTTOM_CENTER
+},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   for (var i = 0; i < keys.length; i++) {
@@ -104,36 +174,38 @@ function initMap() {
     google.maps.event.addListener(keys[i], 'click', function() {
 
       $('#schoolCard').html(
-        "<div class=" + this["cssName"] + ">" + this["link"] + this["name"] + "</a>" + '</div>' +
+        this["link"] + "<div class=" + this["cssName"] + ">"  + this["name"]  + '</div>' + "</a>" +
 
-        '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + "</span></div>" +
+        '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
 
-        '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span>" +
-        "<span id='addressCards'>" + this["address"] + "</span>" +
-        "<span id='titlePercentage'>" + this["overallPercentage"] + "</span></div>" +
+        '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span><span id='operatorCard'>" + this["operator"] + "</span></div>" +
 
-        "<div id='phoneOperatorCard'><span id='phoneCard'>" + this["phone"] + "</span>" +
-        "<span id='operatorCard'>" + this["operator"] + "</span></div>" +
+        "<div id='phoneOperatorCard'><span id='addressCards'>" + this["address"] + "</span>" +
+        "<div id='phoneEnrollment'><span id='phoneCard'>" + this["phone"] + "</span>" +
+        "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
+        "</div>" + "</div>" +
 
-        "<div id='parentSatisfactionCard'>" + "Parent Satisfaction - " + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
+        "<div id='parentSatisfactionCard'>" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
 
-        "<div id='equityCard'>" + "Equity - " + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
+        "<div id='equityCard'>" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
 
-        "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
+        // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
 
-        "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch - " + this["frl"] + "</span>" +
-        "<span id='socCard'>" + "Students of Color - " + this["soc"] + "</span></div>" +
+        "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch" + '<br>' + this["frl"] + "</span>" +
+        "<span id='socCard'>" + "Students of Color" + '<br>' + this["soc"] + "</span></div>" +
 
-        "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners - " + this["ell"] + "</span>" +
-        "<span id='spedCard'>" + "Special Education Students - " + this["sped"] + "</span></div>" +
+        "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners" + '<br>' + this["ell"] + "</span>" +
+        "<span id='spedCard'>" + "Special Education Students" + '<br>' + this["sped"] + "</span></div>" +
 
-        "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>");
+        "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>") +
+
+        "<div></div>";
 
       $('.exAll, #sbTitle, #scale').hide()
       $('#schoolCard').show()
     });
   }
-
+//declare body as a variable and then use it on line 192 for better performance
   $('body').click(function(){
     var zoomLevel = map.getZoom();
     console.log(zoomLevel);

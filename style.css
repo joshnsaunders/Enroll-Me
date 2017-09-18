@@ -1,210 +1,280 @@
 #map {
-  height: 610px;
+  height: 640px;
 }
-
 #wrapper {
   position: relative;
   display: grid;
-  grid-template-columns: 67% 33%;
+  grid-template-columns: 1fr;
 }
-
 .tiny {
 font-size: 15px !important;
 }
 .wickedTiny {
   font-size:8px !important;
 }
-
-
+.dehaze{
+  font-size:40px !important;
+}
+.search{
+  font-size: 40px !important;
+  border-left:solid 1px lightgray;
+  padding-left:8px;
+}
 .inputs {
   position: absolute;
   top: 10px;
   background-color: white;
-  border: black 1px solid;
+  border: lightgray 1px solid;
   padding: 3px;
-  height: 6%;
-  z-index: 99;
+  height: 4%;
+  z-index: 98;
 }
 #checkboxes {
-  left: 37%;
+  left: 4%;
   height: 6%;
 }
-
+#graphicChecks{
+  display:grid;
+  grid-template-columns: repeat(8, 1fr);
+  position:absolute;
+  border-radius: 3px;
+  top:60px;
+  left:4%;
+  width:300px;
+  background-color: white;
+  height:6%;
+  z-index: 98;
+}
 #textForm {
-  left: 11%;
-  width: 22%;
+  width: 90%;
+  background-color: white;
+  padding: 3px;
+  margin-left:10px;
+  height: 65%;
 }
-
+input[type=text]{
+font-size:20px;
+letter-spacing: 0.03em;
+font-family:raleway;
+}
+::-webkit-input-placeholder {
+  color: red;
+}
+#cityId{
+  display:flex;
+  align-items: center;
+  margin-bottom:9px;
+  padding-left:10px;
+  padding-bottom:1px;
+  font-size: 25px;
+  font-family: raleway;
+  border-left:1px solid lightgray;
+  border-right:1px solid lightgray;
+}
 #textInput {
-  height: 88%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
+  background:transparent;
+  border:none;
+  padding-right:8px;
+}
+#navLogo {
+  vertical-align: middle;
+  font-family: 'Fredericka the Great';
+  font-size: 2.5em;
+  padding-left:20px;
+  letter-spacing: 0.05em;
+}
+ #faq {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-family: raleway;
+  font-size: 1.5em;
+  letter-spacing: 0.06em;
+}
+#phoneEnrollment{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  /*grid-gap:5px;*/
 }
 
-#navLogo, #footLogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Cabin;
-  font-size: 2.3em;
-}
-#home, #about, #faq {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Kameron;
-  font-size: 1.2em;
-  margin-right: 4px;
-}
 .navFoot {
   display: grid;
-  background-color: #a2cff9;
-}
-.foot {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Text Me One;
-  font-size: 1.2em;
+  background-color: white;
 }
 nav {
-  grid-template-columns: 25% 47% 8% 8% 8% 4%;
-  margin-bottom: 5px;
-  height:75px;
+  grid-template-columns: 4% 4% 20% 10% 2% 28% 30%;
+  height:50px;
+  border-bottom:solid lightgray 1px;
 }
-footer {
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  margin-top: 5px;
-  height:75px;
-}
-
-#navDescription {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  font-family: Kameron;
-  font-size: 2.2em;
-  margin-left: 0px;
-  padding-left: 37px;
-  color: white;
-}
-
 #schoolCard {
   display: grid;
-  grid-template-rows: 18% 8% 11% 11% 11% 11% 7.5% 7.5% 7.5% 5.5%;
+  grid-template-rows: 14% 8% 11.5% 11.5% 11.5% 11.5% 8% 8% 6% 0%;
   grid-gap: 2%;
+  position: absolute;
+  top:65px;
+  left:10px;
   text-align: center;
-  margin-left: 4%;
-  margin-right:4%;
+  height:535px;
+  width:340px;
+  background: white;
+  overflow:scroll;
+  box-shadow: 5px 5px 5px 0px rgba(112,110,112,0.66);
 }
 .cardIndicator{
   display:flex;
   align-items: center;
   justify-content: center;
+  /*padding-top:8px;*/
   letter-spacing: 0.1em;
+  font-family: roboto;
 }
 .blueIndicator {
   color: blue;
   border-bottom: 2px blue solid;
   border-top: 2px blue solid;
-  font-size:1.5em;
+  font-size:1.3em;
   /*font-weight: bold;*/
 }
 .grayIndicator {
   color: gray;
   border-bottom: 2px gray solid;
   border-top: 2px gray solid;
-  font-size:1.5em;
+  font-size:1.3em;
 }
 .orangeIndicator {
   color: orange;
   border-bottom: 2px orange solid;
   border-top: 2px orange solid;
-  font-size:1.5em;
+  font-size:1.2em;
 }
 .yellowIndicator {
   color: yellow;
   background-color: #c9c7c7;
   border-bottom: 2px yellow solid;
   border-top: 2px yellow solid;
-  font-size:1.5em;
+  font-size:1.3em;
 }
 .redIndicator {
   color: red;
-  border-bottom: 2px red solid;
-  border-top: 2px red solid;
-  font-size: 1.4em;
+  background: linear-gradient(
+    270deg,
+    #FC5D50,
+    #FD0701);
+    color:black;
+    font-weight: bold;
+  /*border: 2px white solid;*/
+  /*border-top: 2px white solid;*/
+  font-size: 1.2em;
+  margin-bottom:0px;
+  padding-bottom:5px;
+  /*margin-bottom: 25px;*/
+  /*color:white;*/
 }
 .greenIndicator {
   color: green;
   border-bottom: 2px green solid;
   border-top: 2px green solid;
-  font-size:1.5em;
+  font-size:1.3em;
 }
 .cardName {
+  padding-top:10px;
   display:flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8em;
   letter-spacing: 0.02em;
+  font-family:roboto;
+  color:white;
+
+  /*background-color: #5562FC  ;*/
 }
 #addressGrade {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
-  grid-gap:2%;
+  /*padding-bottom:-20px;*/
+  /*border-top:1px lightgray solid;*/
+  /*grid-gap:2%;*/
 }
 #gradesCard {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightgray;
-  border: 1px solid black;
+  background-color: white;
+  border-right:solid lightgray 1px;
+  border-bottom:solid lightgray 1px;
+  /*padding-right:10px;*/
+  /*border: 1px solid black;*/
   font-size: 1.6em;
+  font-family: roboto;
+  margin-left:7px;
+  margin-bottom:-6px;
+  /*background:linear-gradient(
+    90deg,
+    #39EC00,
+    #6FE849
+    );*/
 }
 #gradesKeyCard {
   display:flex;
   align-items: center;
   justify-content: center;
   background-color: lightgray;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   font-size: 1.5em;
+  font-family: roboto;
+  /*margin-bottom:-10px;*/
+  /*margin-left:5px;*/
 }
-
-
 
 #addressCards {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightblue;
-  border: 1px solid black;
+  /*background-color: lightblue;*/
+  font-family: roboto;
+  line-height: 1.5em;
+  margin-left:7px;
+  border-right:1px solid lightgray;
+  margin-top:-4px;
+
+  /*background: linear-gradient(
+    90deg,
+    #1ABFFC,
+    #58CFFC);*/
+
+  /*border: 1px solid black;*/
 }
 #address{
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightblue;
-  border: 1px solid black;
+  /*background-color: lightblue;*/
+  /*border: 1px solid black;*/
   font-size:1.7em;
+  font-family: roboto;
+  margin-left:7px;
 }
-
-
 
 #titlePercentage {
   display:flex;
   align-items: center;
   justify-content: center;
   background-color: lightgreen;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   font-size: 1.8em;
+  font-family: roboto;
 }
 #keyPercentage {
   display:flex;
   align-items: center;
   justify-content: center;
   background-color: lightgreen;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   font-size: 1.1em;
+  font-family: roboto;
 }
 
 
@@ -212,24 +282,40 @@ footer {
 #phoneOperatorCard {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2%;
+  /*grid-gap: 2%;*/
 }
 #phoneCard {
   display:flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3em;
-  background-color: lightpink;
-  border: 1px solid black;
+  font-size: 1.1em;
+  /*background-color: lightpink;*/
+  font-family: roboto;
+  margin-right:7px;
+  border-bottom:1px lightgray solid;
+  /*background: linear-gradient(
+    90deg,
+    #58CFFC,
+    #92E0FE);*/
+  /*border: 1px solid black;*/
   /*line-height: 200%;*/
 }
 #operatorCard {
   display:flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3em;
-  background-color: lightblue;
-  border: 1px solid black;
+  font-size: 1.4em;
+  background-color: white;
+  /*border: 1px solid black;*/
+  font-family: roboto;
+  margin-right:7px;
+  margin-bottom:-6px;
+  border-bottom:1px solid lightgray;
+  /*background:linear-gradient(
+    90deg,
+    #6FE849,
+    #ACE899
+    );*/
 }
 /*5th line of the school data card */
 #parentSatisfactionCard {
@@ -237,8 +323,13 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: lightgreen;
-  border: 1px black solid;
+  /*border: 1px black solid;*/
   font-size: 1.25em;
+  font-family: roboto;
+  background: linear-gradient(
+    270deg,
+    #FC5D50,
+    #FD0701);
 }
 /*6th line of the school data card*/
 #equityCard {
@@ -246,8 +337,13 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: lightgray;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   font-size: 1.25em;
+  font-family: roboto;
+  background: linear-gradient(
+    270deg,
+    #FC5D50,
+    #FD0701);
 }
 #dataDate {
   display:flex;
@@ -256,40 +352,193 @@ footer {
   font-family: kameron;
   font-size: 0.65em;
   border: 1px solid black;
+
 }
 #enrollmentCard {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightgreen;
-  border: 1px solid black;
+  /*background-color: #9575CD;*/
+  /*border: 1px solid black;*/
   font-size: 1em;
+  font-family: roboto;
+  margin-right:7px;
+  /*background: linear-gradient(
+    90deg,
+    #58CFFC,
+    #92E0FE);*/
 }
 
 #lunchColorCard, #ellSpedCard {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2%;
+  /*grid-gap: 2%;*/
+  font-family: roboto;
 }
-#frlCard, #socCard {
+#spedCard, #socCard {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightblue;
-  border: 1px solid black;
+  /*background: linear-gradient(
+    90deg,
+    #C1C1C1,
+    #E1E1E1
+    );*/
+  /*background-color: #9E9E9E;*/
+  /*border: 1px solid black;*/
   font-size: .8em;
+  font-family: roboto;
+  margin-right:5px;
 }
 
-#ellCard, #spedCard {
+#ellCard, #frlCard {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightblue;
-  border: 1px solid black;
+  border-right:1px solid lightgray;
+  /*background: linear-gradient(
+    90deg,
+    #949494,
+    #C1C1C1
+    );*/
+  /*background-color: #9E9E9E;*/
+  /*border: 1px solid black;*/
   text-align: center;
-  font-size: .7em;
+  font-size: .8em;
+  font-family: roboto;
+  /*line-height: 1.4em;*/
+  margin-left:5px;
+}
+#ellCard{
+  margin-top:-5px;
+  border-top:solid 1px lightgray;
+}
+#frlCard{
+  margin-bottom:-5px;
+}
+#spedCard{
+  margin-top:-4px;
+}
+#socCard{
+  margin-bottom:-6px;
+  border-bottom:solid 1px lightgray;
+}
+#navCard{
+  display:grid;
+  grid-template-rows: 7.9% 7.5% 7.5% 20% 50%;
+  position:absolute;
+  top:-55px;
+  left:0px;
+  height:695px;
+  width:355px;
+  background-color:white;
+  box-shadow: 5px 0px 5px 0px rgba(156,154,156,0.83);
+  z-index:99;
+}
+#sideBarTopRow{
+  display:grid;
+  grid-template-columns: 15% 85%;
+  border-bottom:1px solid lightgray;
+}
+#sideBarX{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px !important;
+  /*font-weight:100 !important;*/
 }
 
+#sideBarLogo{
+  font-family: 'Fredericka the Great';
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  font-size: 2.2em;
+  letter-spacing: 0.1em;
+  padding-left:20px;
+}
+#logInSignUp{
+  display:grid;
+  grid-template-columns: 15% 30% 30% 25%;
+  padding-top:15px;
+}
+.logInPerson{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px !important;
+  color:#3B69EE;
+}
+#signUp, #logIn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: roboto;
+  font-size: 1.25em;
+  color:#3B69EE;
+}
+#signUp{
+  border:2px black solid;
+  border-radius: 50%;
+}
+#hamburger{
+  cursor: pointer;
+}
+.redBackground{
+  background: linear-gradient(
+    90deg,
+    #FC5D50,
+    #FD0701);
+}
+.orangeBackground{
+background:linear-gradient(
+  90deg,
+  #F99802,
+  #FCAF39)
+  ;
+}
+.yellowBackground{
+  background:linear-gradient(
+    90deg,
+    #F5DF03,
+    #F5E43A
+    );
+}
+.greenBackground{
+  background:linear-gradient(
+    90deg,
+    #4FD001,
+    #8FDA61
+    );
+}
+.blueBackground{
+  background:linear-gradient(
+    90deg,
+    #036DFC,
+    #6AA8FC
+    );
+}
+.newSchoolBackground{
+  background:linear-gradient(
+    90deg,
+    #7D7D7E,
+    #C8C8C9
+    );
+}
+a{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(
+    270deg,
+    #FC5D50,
+    #FD0701
+    );
+    margin-bottom:-11px;
+    /*border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white*/
+}
 a:link {
   text-decoration: none;
   color: black;
@@ -301,14 +550,6 @@ a:visited {
 
 a:hover {
   color: gray;
-}
-
-
-
-aside {
-  display: grid;
-  grid-template-rows: 70% 30%;
-  font-family: Kameron;
 }
 
 #data {

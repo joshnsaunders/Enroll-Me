@@ -5,30 +5,54 @@
   <meta charset="utf-8">
   <title>EnRoll Me</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Advent+Pro|Antic+Slab|Cabin|Cagliostro|Josefin+Sans|Julius+Sans+One|Kameron|News+Cycle|Raleway|Scope+One|Text+Me+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Antic+Slab|Cabin|Cagliostro|Josefin+Sans|Julius+Sans+One|Kameron|News+Cycle|Raleway|Scope+One|Text+Me+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
 </head>
 
 <body onload="initMap()">
   <header>
     <nav class="navFoot">
-      <div id="navLogo" class="nav">EnrollMe.Info</div>
-      <div id="navDescription" class="nav">Find the best public schools.</div>
-      <div id="home" class="nav navLinks">Home</div>
-      <div id="about" class="nav navLinks">About</div>
-      <div id="faq" class="nav navLinks">FAQ</div>
+      <div id="hamburger"><i class="dehaze material-icons">dehaze</i></div>
+      <div><i class="search material-icons">search</i></div>
+      <div class="textInput">
+        <form id="textForm">
+          <input id="textInput" type="text" class="orgs" placeholder="Search Enroll Me">
+        </form>
+      </div>
+      <div id="cityId">
+        Denver
+      </div>
       <div></div>
+      <div id="navLogo" class="nav">Enroll Me</div>
+      <div id="faq" class="nav navLinks">What's an SPF?</div>
     </nav>
   </header>
   <main id="wrapper">
     <div id='map'></div>
-    <aside id="sidebar">
-        <div id="schoolCard"></div>
-        <div>
-      </div>
-    </aside>
+    <div id="schoolCard"></div>
+    <div id="navCard">
+      <div id="sideBarTopRow"><span id="sideBarX" class="material-icons">close</span><span id="sideBarLogo">Enroll Me</span></div>
+      <div id="logInSignUp"><span class="logInPerson material-icons">person_outline</span><span id="signUp">Sign Up</span><span id="logIn">Log In</span><span></span></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+    </div>
+    <!-- <div id="graphicChecks">
+      <span class="personIcon personElem material-icons">person</span>
+      <span class="personIcon personMiddle material-icons">person</span>
+      <span class="personIcon personHigh material-icons">person</span>
+      <span class="schoolSize material-icons">school</span>
+      <span class="schoolSize material-icons">school</span>
+      <span class="schoolSize material-icons">school</span>
+      <span class="schoolSize material-icons">school</span>
+      <span class="schoolSize material-icons">school</span>
+
+    </div> -->
     <section id="forms">
-      <div class="inputs"id="checkboxes">
+      <div class="inputs" id="checkboxes">
         <form id="formType">
           <input class="check checkbox" type="checkbox" value="blue">Blue
           <input class="check checkbox" type="checkbox" value="green">Green
@@ -43,22 +67,16 @@
           <button class="button">Clear</button>
         </form>
       </div>
-      <form class="inputs" id="textForm">
-        <input  id="textInput" type="text" class="orgs" placeholder="DPS, Strive, DSST...">
-      </form>
     </section>
   </main>
 
-  <footer class="navFoot">
-    <div class="foot">Donate Here!</div>
-    <div class="foot">Facebook and others.</div>
-    <div class="foot" id="footLogo">EnrollMe.Info</div>
-    <div class="foot">Our Team</div>
-    <div class="foot">Contact</div>
+  <footer>
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNgmWThTz7CQukzdOg7fSe_aJLCXnPTVM&callback=initMap"></script>
   <script src="v3-utility-library/markerwithlabel/src/markerwithlabel.js"></script>
   <script src="bundle.js"></script>
 </body>
+
 </html>
