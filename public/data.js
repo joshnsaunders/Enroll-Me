@@ -8,22 +8,6 @@ export var icons = {
     strokeWeight: 0.5,
     scale: 0.4
   },
-  dpsDefaultTiny:{
-    path: 'M22-48h-44v43h16l6 5 6-5h16z',
-    fillColor: '#76787c',
-    fillOpacity: 0.6,
-    strokeColor: '',
-    strokeWeight: 0.5,
-    scale: 0.4
-  },
-  dpsDefaultWickedTiny:{
-    path: 'M22-48h-44v43h16l6 5 6-5h16z',
-    fillColor: '#76787c',
-    fillOpacity: 0.6,
-    strokeColor: '',
-    strokeWeight: 0.5,
-    scale: 0.2
-  },
   dpsGray:{
     path: 'M22-48h-44v43h16l6 5 6-5h16z',
     fillColor: '#cecece',

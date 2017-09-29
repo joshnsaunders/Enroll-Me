@@ -74,6 +74,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__spfData_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__spfData_json__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__);
+$(document).ready(function() {
+
+})
+console.log("hello");
+
+
 
 
 
@@ -81,11 +87,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var schoolDataArray = [];
 
-for (var i=0;i<__WEBPACK_IMPORTED_MODULE_1__spfData_json__["length"];i++){
-  for (var j=0;j<__WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__["length"];j++){
-    if (__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Number"]===__WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["SchoolNumber"]){
-      schoolDataArray.push(
-        {
+for (var i = 0; i < __WEBPACK_IMPORTED_MODULE_1__spfData_json__["length"]; i++) {
+  for (var j = 0; j < __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__["length"]; j++) {
+    if (__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Number"] === __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["SchoolNumber"]) {
+      schoolDataArray.push({
         // position: schoolData[keys[i]]["position"],
         icon: __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultTiny"],
         draggable: false,
@@ -101,28 +106,28 @@ for (var i=0;i<__WEBPACK_IMPORTED_MODULE_1__spfData_json__["length"];i++){
         // infoBox: new google.maps.InfoWindow({
         content: '<div><strong>' + __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Name"] + '</strong></div><div>' + __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["Phone"] + '</div>',
         // }),
-        number:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Number"],
-        name:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Name"],
-        overallPercentage:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% Earned Points"],
-        overallDescriptor:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["SPF Rating"],
-        grades:__WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["GradeLevels"],
-        address:__WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["Address"],
-        link:'<a href = ' + '"' + __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["WebUrl"] + '"' + ' target="_blank">',
-        operator:"?",
-        parentSatisfactionPercentage:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Parent and Student Engagement & Satisfaction % Pts"],
-        parentSatisfactionIndicator:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Parent and Student Engagement & Satisfaction Stoplight"],
-        equityPercentage:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Equity Indicator % Pts"],
-        equityIndicator:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Equity Indicator Stoplight"],
-        phone:__WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["Phone"],
-        enrollment:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Enrollment"],
-        frl:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% FRL"],
-        soc:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% Students of Color"],
-        ell:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% ELL"],
-        sped:__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% SPED"],
+        number: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Number"],
+        name: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Name"],
+        overallPercentage: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% Earned Points"],
+        overallDescriptor: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["SPF Rating"],
+        grades: __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["GradeLevels"],
+        address: __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["Address"],
+        link: '<a href = ' + '"' + __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["WebUrl"] + '"' + ' target="_blank">',
+        operator: "?",
+        parentSatisfactionPercentage: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Parent and Student Engagement & Satisfaction % Pts"],
+        parentSatisfactionIndicator: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Parent and Student Engagement & Satisfaction Stoplight"],
+        equityPercentage: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Equity Indicator % Pts"],
+        equityIndicator: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Equity Indicator Stoplight"],
+        phone: __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["Phone"],
+        enrollment: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["Enrollment"],
+        frl: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% FRL"],
+        soc: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% Students of Color"],
+        ell: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% ELL"],
+        sped: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% SPED"],
         // cssIndicator: schoolData[keys[i]]["cssIndicator"],
         cssName: "cardName",
-        smallIcon:__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultTiny"],
-    })
+        smallIcon: __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultTiny"],
+      })
     }
   }
 }
@@ -130,16 +135,31 @@ console.log(schoolDataArray);
 //semi-colons!!!!
 //more accessible with main/sections/articles and other accessibility features
 $('#schoolCard').hide()
-$('#map').click(function(){
-  $('#schoolCard').hide()
+$('#map').click(function() {
+  $('#schoolCard, #socialLogIn').hide()
 })
 $('#navCard').hide()
-$('#hamburger').click(function(){
-  $('#navCard').toggle('slide',{direction:'left'}, 300)
+$('#hamburger').click(function() {
+  $('#navCard').toggle('slide', {
+    direction: 'left'
+  }, 300)
 })
-$('#sideBarX').click(function(){
-  $('#navCard').toggle('slide',{direction:'left'}, 300)
+$('#sideBarX').click(function() {
+  $('#navCard').toggle('slide', {
+    direction: 'left'
+  }, 300)
 })
+
+$('#auth').click(function() {
+  $('#socialLogIn').css({
+    'display':'grid',
+  })
+  // $('#socialLogIn').toggle('blind',options, 300)
+})
+
+
+
+
 
 var keys = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* schoolData */])
 var sideBarKey = __WEBPACK_IMPORTED_MODULE_0__data_js__["a" /* deft */]
@@ -180,20 +200,20 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: {
-      lat:39.740318,
-      lng:-104.920328,
+      lat: 39.740318,
+      lng: -104.920328,
     },
     mapTypeControl: true,
-mapTypeControlOptions: {
-    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-    position: google.maps.ControlPosition.BOTTOM_CENTER
-},
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+      position: google.maps.ControlPosition.BOTTOM_CENTER
+    },
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   for (var i = 0; i < keys.length; i++) {
     keys[i] = new MarkerWithLabel({
       position: __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* schoolData */][keys[i]]["position"],
-      icon: __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultTiny"],
+      icon: __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefault"],
       draggable: false,
       raiseOnDrag: false,
       map: map,
@@ -226,7 +246,7 @@ mapTypeControlOptions: {
       sped: __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* schoolData */][keys[i]]["sped"],
       cssIndicator: __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* schoolData */][keys[i]]["cssIndicator"],
       cssName: __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* schoolData */][keys[i]]["cssName"],
-      smallIcon:__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultSmall"],
+      smallIcon: __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultSmall"],
     });
   }
 
@@ -246,30 +266,30 @@ mapTypeControlOptions: {
     google.maps.event.addListener(keys[i], 'click', function() {
 
       $('#schoolCard').html(
-        this["link"] + "<div class=" + this["cssName"] + ">"  + this["name"]  + '</div>' + "</a>" +
+          this["link"] + "<div class=" + this["cssName"] + ">" + this["name"] + '</div>' + "</a>" +
 
-        '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
+          '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
 
-        '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span><span id='operatorCard'>" + this["operator"] + "</span></div>" +
+          '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span><span id='operatorCard'>" + this["operator"] + "</span></div>" +
 
-        "<div id='phoneOperatorCard'><span id='addressCards'>" + this["address"] + "</span>" +
-        "<div id='phoneEnrollment'><span id='phoneCard'>" + this["phone"] + "</span>" +
-        "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
-        "</div>" + "</div>" +
+          "<div id='phoneOperatorCard'><span id='addressCards'>" + this["address"] + "</span>" +
+          "<div id='phoneEnrollment'><span id='phoneCard'>" + this["phone"] + "</span>" +
+          "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
+          "</div>" + "</div>" +
 
-        "<div id='parentSatisfactionCard'>" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
+          "<div id='parentSatisfactionCard'>" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
 
-        "<div id='equityCard'>" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
+          "<div id='equityCard'>" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
 
-        // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
+          // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
 
-        "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch" + '<br>' + this["frl"] + "</span>" +
-        "<span id='socCard'>" + "Students of Color" + '<br>' + this["soc"] + "</span></div>" +
+          "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch" + '<br>' + this["frl"] + "</span>" +
+          "<span id='socCard'>" + "Students of Color" + '<br>' + this["soc"] + "</span></div>" +
 
-        "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners" + '<br>' + this["ell"] + "</span>" +
-        "<span id='spedCard'>" + "Special Education Students" + '<br>' + this["sped"] + "</span></div>" +
+          "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners" + '<br>' + this["ell"] + "</span>" +
+          "<span id='spedCard'>" + "Special Education Students" + '<br>' + this["sped"] + "</span></div>" +
 
-        "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>") +
+          "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>") +
 
         "<div></div>";
 
@@ -277,47 +297,43 @@ mapTypeControlOptions: {
       $('#schoolCard').show()
     });
   }
-//declare body as a variable and then use it on line 192 for better performance
-  $('body').click(function(){
+  map.addListener("zoom_changed", function() {
     var zoomLevel = map.getZoom();
-    console.log(zoomLevel);
-    var iconKeys = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */])
+    changeIcon(zoomLevel)
+  })
+
+
+  function changeIcon(zoomlevelArray) {
+    let iconKeys = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */])
     console.log(iconKeys);
-    for (var j=0;j<iconKeys.length;j++){
-      if(zoomLevel>=13){
-        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"] = 0.7;
-        console.log(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"]);
-
+    if (zoomlevelArray >= 14) {
+      for (let i = 0; i < iconKeys.length; i++) {
+        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[i]]["scale"] = 0.7
       }
-      else if (zoomLevel === 12){
-        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"] = 0.4;
-        console.log(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"]);
-
+    } else if (zoomlevelArray == 13 || zoomlevelArray == 12 || zoomlevelArray == 11) {
+      for (let i = 0; i < iconKeys.length; i++) {
+        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[i]]["scale"] = 0.4
       }
-      else if(zoomLevel <=11){
-        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"] = 0.2;
-        console.log(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[j]]["scale"]);
-
+    } else if (zoomlevelArray == 10 || zoomlevelArray == 9 || zoomlevelArray == 8) {
+      for (let i = 0; i < iconKeys.length; i++) {
+        __WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */][iconKeys[i]]["scale"] = 0.2
       }
     }
 
-
-    for (var i=0;i<keys.length;i++){
-      if(zoomLevel>=13){
-       keys[i].setIcon(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefault"]);
-        keys[i]["labelClass"] = "material-icons";
+    for (var i = 0; i < keys.length; i++) {
+      keys[i].setIcon(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefault"]);
+      if (zoomlevelArray >= 14) {
+        keys[i]["labelClass"] = "regular material-icons";
         keys[i]["labelAnchor"] = new google.maps.Point(12, 30);
-      } else if(zoomLevel===12){
-        keys[i].setIcon(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultTiny"]);
+      } else if (zoomlevelArray == 13 || zoomlevelArray == 12 || zoomlevelArray == 11) {
         keys[i]["labelClass"] = "tiny material-icons";
         keys[i]["labelAnchor"] = new google.maps.Point(7.5, 18);
-      } else if(zoomLevel<=11){
-        keys[i].setIcon(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* icons */]["dpsDefaultWickedTiny"]);
+      } else if (zoomlevelArray == 10 || zoomlevelArray == 9 || zoomlevelArray == 8) {
         keys[i]["labelClass"] = "wickedTiny material-icons";
-        keys[i]["labelAnchor"] = new google.maps.Point(4.2,9);
+        keys[i]["labelAnchor"] = new google.maps.Point(4.2, 9);
       }
     }
-  });
+  }
 
   $('.checkbox').click(function() {
     searchLoop();
@@ -459,6 +475,20 @@ mapTypeControlOptions: {
   }
 }
 
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+// $('#faq').delay(2000).text('perfor')
+// $('#auth').click(function(){
+//   $('#socialLogIn').css({
+//     'display':'grid',
+//   })
+// })
+
 window.initMap = initMap;
 
 
@@ -479,22 +509,6 @@ var icons = {
     strokeColor: '',
     strokeWeight: 0.5,
     scale: 0.4
-  },
-  dpsDefaultTiny:{
-    path: 'M22-48h-44v43h16l6 5 6-5h16z',
-    fillColor: '#76787c',
-    fillOpacity: 0.6,
-    strokeColor: '',
-    strokeWeight: 0.5,
-    scale: 0.4
-  },
-  dpsDefaultWickedTiny:{
-    path: 'M22-48h-44v43h16l6 5 6-5h16z',
-    fillColor: '#76787c',
-    fillOpacity: 0.6,
-    strokeColor: '',
-    strokeWeight: 0.5,
-    scale: 0.2
   },
   dpsGray:{
     path: 'M22-48h-44v43h16l6 5 6-5h16z',

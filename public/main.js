@@ -1,3 +1,9 @@
+$(document).ready(function() {
+
+})
+console.log("hello");
+
+
 import {
   schoolData,
   icons,
@@ -9,11 +15,10 @@ import * as schoolInfoData from './schoolInfoData.json'
 
 var schoolDataArray = [];
 
-for (var i=0;i<spfData.length;i++){
-  for (var j=0;j<schoolInfoData.length;j++){
-    if (spfData[i]["School Number"]===schoolInfoData[j]["SchoolNumber"]){
-      schoolDataArray.push(
-        {
+for (var i = 0; i < spfData.length; i++) {
+  for (var j = 0; j < schoolInfoData.length; j++) {
+    if (spfData[i]["School Number"] === schoolInfoData[j]["SchoolNumber"]) {
+      schoolDataArray.push({
         // position: schoolData[keys[i]]["position"],
         icon: icons["dpsDefaultTiny"],
         draggable: false,
@@ -29,28 +34,28 @@ for (var i=0;i<spfData.length;i++){
         // infoBox: new google.maps.InfoWindow({
         content: '<div><strong>' + spfData[i]["School Name"] + '</strong></div><div>' + schoolInfoData[j]["Phone"] + '</div>',
         // }),
-        number:spfData[i]["School Number"],
-        name:spfData[i]["School Name"],
-        overallPercentage:spfData[i]["% Earned Points"],
-        overallDescriptor:spfData[i]["SPF Rating"],
-        grades:schoolInfoData[j]["GradeLevels"],
-        address:schoolInfoData[j]["Address"],
-        link:'<a href = ' + '"' + schoolInfoData[j]["WebUrl"] + '"' + ' target="_blank">',
-        operator:"?",
-        parentSatisfactionPercentage:spfData[i]["Parent and Student Engagement & Satisfaction % Pts"],
-        parentSatisfactionIndicator:spfData[i]["Parent and Student Engagement & Satisfaction Stoplight"],
-        equityPercentage:spfData[i]["Equity Indicator % Pts"],
-        equityIndicator:spfData[i]["Equity Indicator Stoplight"],
-        phone:schoolInfoData[j]["Phone"],
-        enrollment:spfData[i]["Enrollment"],
-        frl:spfData[i]["% FRL"],
-        soc:spfData[i]["% Students of Color"],
-        ell:spfData[i]["% ELL"],
-        sped:spfData[i]["% SPED"],
+        number: spfData[i]["School Number"],
+        name: spfData[i]["School Name"],
+        overallPercentage: spfData[i]["% Earned Points"],
+        overallDescriptor: spfData[i]["SPF Rating"],
+        grades: schoolInfoData[j]["GradeLevels"],
+        address: schoolInfoData[j]["Address"],
+        link: '<a href = ' + '"' + schoolInfoData[j]["WebUrl"] + '"' + ' target="_blank">',
+        operator: "?",
+        parentSatisfactionPercentage: spfData[i]["Parent and Student Engagement & Satisfaction % Pts"],
+        parentSatisfactionIndicator: spfData[i]["Parent and Student Engagement & Satisfaction Stoplight"],
+        equityPercentage: spfData[i]["Equity Indicator % Pts"],
+        equityIndicator: spfData[i]["Equity Indicator Stoplight"],
+        phone: schoolInfoData[j]["Phone"],
+        enrollment: spfData[i]["Enrollment"],
+        frl: spfData[i]["% FRL"],
+        soc: spfData[i]["% Students of Color"],
+        ell: spfData[i]["% ELL"],
+        sped: spfData[i]["% SPED"],
         // cssIndicator: schoolData[keys[i]]["cssIndicator"],
         cssName: "cardName",
-        smallIcon:icons["dpsDefaultTiny"],
-    })
+        smallIcon: icons["dpsDefaultTiny"],
+      })
     }
   }
 }
@@ -58,16 +63,31 @@ console.log(schoolDataArray);
 //semi-colons!!!!
 //more accessible with main/sections/articles and other accessibility features
 $('#schoolCard').hide()
-$('#map').click(function(){
-  $('#schoolCard').hide()
+$('#map').click(function() {
+  $('#schoolCard, #socialLogIn').hide()
 })
 $('#navCard').hide()
-$('#hamburger').click(function(){
-  $('#navCard').toggle('slide',{direction:'left'}, 300)
+$('#hamburger').click(function() {
+  $('#navCard').toggle('slide', {
+    direction: 'left'
+  }, 300)
 })
-$('#sideBarX').click(function(){
-  $('#navCard').toggle('slide',{direction:'left'}, 300)
+$('#sideBarX').click(function() {
+  $('#navCard').toggle('slide', {
+    direction: 'left'
+  }, 300)
 })
+
+$('#auth').click(function() {
+  $('#socialLogIn').css({
+    'display':'grid',
+  })
+  // $('#socialLogIn').toggle('blind',options, 300)
+})
+
+
+
+
 
 var keys = Object.keys(schoolData)
 var sideBarKey = deft
@@ -108,20 +128,20 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: {
-      lat:39.740318,
-      lng:-104.920328,
+      lat: 39.740318,
+      lng: -104.920328,
     },
     mapTypeControl: true,
-mapTypeControlOptions: {
-    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-    position: google.maps.ControlPosition.BOTTOM_CENTER
-},
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+      position: google.maps.ControlPosition.BOTTOM_CENTER
+    },
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   for (var i = 0; i < keys.length; i++) {
     keys[i] = new MarkerWithLabel({
       position: schoolData[keys[i]]["position"],
-      icon: icons["dpsDefaultTiny"],
+      icon: icons["dpsDefault"],
       draggable: false,
       raiseOnDrag: false,
       map: map,
@@ -154,7 +174,7 @@ mapTypeControlOptions: {
       sped: schoolData[keys[i]]["sped"],
       cssIndicator: schoolData[keys[i]]["cssIndicator"],
       cssName: schoolData[keys[i]]["cssName"],
-      smallIcon:icons["dpsDefaultSmall"],
+      smallIcon: icons["dpsDefaultSmall"],
     });
   }
 
@@ -174,30 +194,30 @@ mapTypeControlOptions: {
     google.maps.event.addListener(keys[i], 'click', function() {
 
       $('#schoolCard').html(
-        this["link"] + "<div class=" + this["cssName"] + ">"  + this["name"]  + '</div>' + "</a>" +
+          this["link"] + "<div class=" + this["cssName"] + ">" + this["name"] + '</div>' + "</a>" +
 
-        '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
+          '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
 
-        '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span><span id='operatorCard'>" + this["operator"] + "</span></div>" +
+          '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span><span id='operatorCard'>" + this["operator"] + "</span></div>" +
 
-        "<div id='phoneOperatorCard'><span id='addressCards'>" + this["address"] + "</span>" +
-        "<div id='phoneEnrollment'><span id='phoneCard'>" + this["phone"] + "</span>" +
-        "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
-        "</div>" + "</div>" +
+          "<div id='phoneOperatorCard'><span id='addressCards'>" + this["address"] + "</span>" +
+          "<div id='phoneEnrollment'><span id='phoneCard'>" + this["phone"] + "</span>" +
+          "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
+          "</div>" + "</div>" +
 
-        "<div id='parentSatisfactionCard'>" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
+          "<div id='parentSatisfactionCard'>" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
 
-        "<div id='equityCard'>" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
+          "<div id='equityCard'>" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
 
-        // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
+          // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
 
-        "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch" + '<br>' + this["frl"] + "</span>" +
-        "<span id='socCard'>" + "Students of Color" + '<br>' + this["soc"] + "</span></div>" +
+          "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch" + '<br>' + this["frl"] + "</span>" +
+          "<span id='socCard'>" + "Students of Color" + '<br>' + this["soc"] + "</span></div>" +
 
-        "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners" + '<br>' + this["ell"] + "</span>" +
-        "<span id='spedCard'>" + "Special Education Students" + '<br>' + this["sped"] + "</span></div>" +
+          "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners" + '<br>' + this["ell"] + "</span>" +
+          "<span id='spedCard'>" + "Special Education Students" + '<br>' + this["sped"] + "</span></div>" +
 
-        "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>") +
+          "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>") +
 
         "<div></div>";
 
@@ -205,47 +225,43 @@ mapTypeControlOptions: {
       $('#schoolCard').show()
     });
   }
-//declare body as a variable and then use it on line 192 for better performance
-  $('body').click(function(){
+  map.addListener("zoom_changed", function() {
     var zoomLevel = map.getZoom();
-    console.log(zoomLevel);
-    var iconKeys = Object.keys(icons)
+    changeIcon(zoomLevel)
+  })
+
+
+  function changeIcon(zoomlevelArray) {
+    let iconKeys = Object.keys(icons)
     console.log(iconKeys);
-    for (var j=0;j<iconKeys.length;j++){
-      if(zoomLevel>=13){
-        icons[iconKeys[j]]["scale"] = 0.7;
-        console.log(icons[iconKeys[j]]["scale"]);
-
+    if (zoomlevelArray >= 14) {
+      for (let i = 0; i < iconKeys.length; i++) {
+        icons[iconKeys[i]]["scale"] = 0.7
       }
-      else if (zoomLevel === 12){
-        icons[iconKeys[j]]["scale"] = 0.4;
-        console.log(icons[iconKeys[j]]["scale"]);
-
+    } else if (zoomlevelArray == 13 || zoomlevelArray == 12 || zoomlevelArray == 11) {
+      for (let i = 0; i < iconKeys.length; i++) {
+        icons[iconKeys[i]]["scale"] = 0.4
       }
-      else if(zoomLevel <=11){
-        icons[iconKeys[j]]["scale"] = 0.2;
-        console.log(icons[iconKeys[j]]["scale"]);
-
+    } else if (zoomlevelArray == 10 || zoomlevelArray == 9 || zoomlevelArray == 8) {
+      for (let i = 0; i < iconKeys.length; i++) {
+        icons[iconKeys[i]]["scale"] = 0.2
       }
     }
 
-
-    for (var i=0;i<keys.length;i++){
-      if(zoomLevel>=13){
-       keys[i].setIcon(icons["dpsDefault"]);
-        keys[i]["labelClass"] = "material-icons";
+    for (var i = 0; i < keys.length; i++) {
+      keys[i].setIcon(icons["dpsDefault"]);
+      if (zoomlevelArray >= 14) {
+        keys[i]["labelClass"] = "regular material-icons";
         keys[i]["labelAnchor"] = new google.maps.Point(12, 30);
-      } else if(zoomLevel===12){
-        keys[i].setIcon(icons["dpsDefaultTiny"]);
+      } else if (zoomlevelArray == 13 || zoomlevelArray == 12 || zoomlevelArray == 11) {
         keys[i]["labelClass"] = "tiny material-icons";
         keys[i]["labelAnchor"] = new google.maps.Point(7.5, 18);
-      } else if(zoomLevel<=11){
-        keys[i].setIcon(icons["dpsDefaultWickedTiny"]);
+      } else if (zoomlevelArray == 10 || zoomlevelArray == 9 || zoomlevelArray == 8) {
         keys[i]["labelClass"] = "wickedTiny material-icons";
-        keys[i]["labelAnchor"] = new google.maps.Point(4.2,9);
+        keys[i]["labelAnchor"] = new google.maps.Point(4.2, 9);
       }
     }
-  });
+  }
 
   $('.checkbox').click(function() {
     searchLoop();
@@ -386,5 +402,19 @@ mapTypeControlOptions: {
     }
   }
 }
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+// $('#faq').delay(2000).text('perfor')
+// $('#auth').click(function(){
+//   $('#socialLogIn').css({
+//     'display':'grid',
+//   })
+// })
 
 window.initMap = initMap;

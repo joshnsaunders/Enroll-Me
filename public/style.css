@@ -6,6 +6,9 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+.regular{
+  font-size:25px !important;
+}
 .tiny {
 font-size: 15px !important;
 }
@@ -16,9 +19,13 @@ font-size: 15px !important;
   font-size:40px !important;
 }
 .search{
-  font-size: 40px !important;
+  font-size: 35px !important;
   border-left:solid 1px lightgray;
   padding-left:8px;
+}
+#leftcityBorder{
+  border-left:solid 1px lightgray;
+  /*height:45px;*/
 }
 .inputs {
   position: absolute;
@@ -52,46 +59,138 @@ font-size: 15px !important;
   margin-left:10px;
   height: 65%;
 }
-input[type=text]{
-font-size:20px;
+input[id=textInput]{
+font-size:18px;
 letter-spacing: 0.03em;
 font-family:raleway;
+/*border-bottom:lightgray 1px solid;*/
 }
-::-webkit-input-placeholder {
+input[id=textInput]::-webkit-input-placeholder {
+  /*line-height: 200%;*/
   color: red;
+  /*padding-top:50px;*/
+  padding-left: 5px;
+  text-align:left;
+  /*line-height:400%;*/
+  /*align-items: baseline;*/
+}
+input[id=faqInput]::-webkit-input-placeholder{
+  padding-left:5px;
+  margin-left: 5px;
+  color:blue;
+  text-align:left;
+  font-size: 20px;
+  font-family:raleway;
+}
+#auth{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: raleway;
+  font-size: 1.1em;
+  /*padding-bottom:3px;*/
+}
+#socialLogIn{
+  display: none;
+  grid-template-rows: 1fr 1fr;
+  margin:auto;
+  justify-content: center;
+  /*align-items: center;
+  /*grid-gap: 5%;*/
+  /*border-top:265px;
+  border-bottom:255px;
+  border-right:180px;
+  border-left:180px;*/
+  border-left:1px solid lightgray;
+  border-right:1px solid lightgray;
+  border-bottom:1px solid lightgray;
+  height:90px;
+  width:263px;
+  position: absolute;
+  top:51px;
+  left:78.7%;
+  /*background-color: white;*/
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 99;
+  align-items: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+#faqInput{
+  height:60%;
+  width:50%;
+  background: transparent;
+  border:none;
+  margin-left:10px;
+  margin-top:3px;
+  font-size: 20px;
+  font-family: raleway;
+  text-align:left;
+}
+input[id=textInput]:hover::-webkit-input-placeholder{
+  padding-left:0px;
+  font-style: italic;
+  color:rgba(255,0,0,0.3)
 }
 #cityId{
   display:flex;
   align-items: center;
-  margin-bottom:9px;
-  padding-left:10px;
-  padding-bottom:1px;
-  font-size: 25px;
+  justify-content: center;
+  margin-bottom:7px;
+  margin-top:7px;
+  /*padding-left:10px;*/
+
+  font-size: 20px;
   font-family: raleway;
   border-left:1px solid lightgray;
   border-right:1px solid lightgray;
+  padding-bottom:3px;
+  padding-top:3px;
 }
 #textInput {
+  display:flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   background:transparent;
   border:none;
   padding-right:8px;
 }
+.textInput{
+  display: flex;
+  align-items: center;
+}
 #navLogo {
-  vertical-align: middle;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  /*vertical-align: middle;*/
   font-family: 'Fredericka the Great';
   font-size: 2.5em;
-  padding-left:20px;
+  /*padding-left:20px;*/
+  /*margin-bottom:10px;*/
   letter-spacing: 0.05em;
+  /*border-right:1px solid lightgray;*/
+}
+body{
+  margin-top:0px !important;
+  /*padding-top:0px !important;*/
 }
  #faq {
   display:flex;
-  justify-content: center;
   align-items: center;
+  padding-left:100px;
+  /*align-items: center;*/
   font-family: raleway;
   font-size: 1.5em;
   letter-spacing: 0.06em;
+  /*padding-left: 60px;*/
+  border-left:1px solid lightgray;
+  border-right:1px solid lightgray;
+  margin-top:7px;
+  margin-bottom:7px;
 }
 #phoneEnrollment{
   display: grid;
@@ -104,7 +203,7 @@ font-family:raleway;
   background-color: white;
 }
 nav {
-  grid-template-columns: 4% 4% 20% 10% 2% 28% 30%;
+  grid-template-columns: 4% 4% 20% 10% 22% 19% 19%;
   height:50px;
   border-bottom:solid lightgray 1px;
 }
@@ -482,7 +581,15 @@ nav {
   border-radius: 50%;
 }
 #hamburger{
+  display:flex;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+#searchIcon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .redBackground{
   background: linear-gradient(
@@ -525,19 +632,19 @@ background:linear-gradient(
     #C8C8C9
     );
 }
-a{
+/*a{
   display:flex;
   align-items: center;
-  justify-content: center;
-  background:linear-gradient(
+  justify-content: center;*/
+  /*background:linear-gradient(
     270deg,
     #FC5D50,
     #FD0701
-    );
-    margin-bottom:-11px;
-    /*border-top: 2px solid white;
+    );*/
+    /*margin-bottom:-11px;
+    border-top: 2px solid white;
     border-left: 2px solid white;
-    border-right: 2px solid white*/
+    border-right: 2px solid white
 }
 a:link {
   text-decoration: none;
@@ -550,7 +657,7 @@ a:visited {
 
 a:hover {
   color: gray;
-}
+}*/
 
 #data {
   display: flex;
@@ -563,4 +670,51 @@ a:hover {
   border-top: black solid 1px;
   font-family: Kameron;
   font-size: 1em;
+}
+/*.facebookButton{
+  height:100px;
+  width:100%;
+  font-style: raleway;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom:10px;
+}*/
+.buttonText{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  font-style: raleway;
+  text-decoration: none;
+}
+nav div a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-facebook, .btn-google, .btn-yahoo, .btn-twitter{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:40px;
+  /*width:90%;*/
+  font-family:raleway;
+  /*padding-right:20px;*/
+}
+.btn-social{
+  /*padding-left: 25px !important;*/
+}
+#fLogo, #gLogo, #yLogo, #tLogo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+}
+#facebookA, #googleA, #yahooA, #twitterA{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  width:200px;
 }
