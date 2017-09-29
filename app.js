@@ -56,7 +56,7 @@ app.get('/auth/facebook', passport.authenticate('facebook', {
  }))
 
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/',
+  passport.authenticate('facebook', { successRedirect: 'https://enrollme-4854d.firebaseapp.com/',
                                       failureRedirect: '/login' }));
 
 // Use the GoogleStrategy within Passport.
@@ -91,7 +91,7 @@ app.get('/auth/google',
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('https://enrollme-4854d.firebaseapp.com');
   });
 
 
