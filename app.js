@@ -40,7 +40,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new FacebookStrategy({
     clientID: '1396338423796632',
     clientSecret: '4a6fa770ae26c297f54416672294c40b',
-    callbackURL: "https://warm-waters-71689.herokuapp.com/auth/facebook/callback",
+    callbackURL: "/auth/facebook/callback",
     profileFields:['id', 'displayName', 'photos','emails', 'first_name', 'birthday', 'age_range', 'political', 'locale', 'location', 'relationship_status'],
   },
 
@@ -50,12 +50,12 @@ passport.use(new FacebookStrategy({
   }
 ));
 
-app.get('https://warm-waters-71689.herokuapp.com/auth/facebook', passport.authenticate('facebook', {
+app.get('/auth/facebook', passport.authenticate('facebook', {
    scope:['email', 'public_profile'],
    display: 'popup',
  }))
 
-app.get('https://warm-waters-71689.herokuapp.com/auth/facebook/callback',
+app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { successRedirect: '/',
                                       failureRedirect: '/login' }));
 
