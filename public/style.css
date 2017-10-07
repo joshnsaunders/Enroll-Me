@@ -34,7 +34,7 @@ font-size: 15px !important;
   border: lightgray 1px solid;
   padding: 3px;
   height: 4%;
-  z-index: 98;
+  z-index: 99;
 }
 #checkboxes {
   left: 4%;
@@ -104,7 +104,7 @@ input[id=faqInput]::-webkit-input-placeholder{
   border-left:1px solid lightgray;
   border-right:1px solid lightgray;
   border-bottom:1px solid lightgray;
-  height:90px;
+  height:60px;
   width:263px;
   position: absolute;
   top:51px;
@@ -115,6 +115,7 @@ input[id=faqInput]::-webkit-input-placeholder{
   align-items: center;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  padding-top: 15px;
 }
 
 #faqInput{
@@ -191,6 +192,7 @@ body{
   border-right:1px solid lightgray;
   margin-top:7px;
   margin-bottom:7px;
+  cursor:pointer;
 }
 #phoneEnrollment{
   display: grid;
@@ -229,30 +231,102 @@ nav {
   letter-spacing: 0.1em;
   font-family: roboto;
 }
+/*.graybackground{
+color:white;
+}*/
+.redBackground{
+  background: linear-gradient(
+    270deg,
+    #FC5D50,
+    #FD0701);
+}
+.orangeBackground{
+background:linear-gradient(
+  90deg,
+  #F99802,
+  #FCAF39)
+  ;
+}
+.grayBackground{
+  color:white;
+  background:linear-gradient(
+    90deg,
+    #565656,
+    #a8a8a8
+    )
+}
+
+
+.yellowBackground{
+  background:linear-gradient(
+    90deg,
+    #F5DF03,
+    #F5E43A
+    );
+}
+.greenBackground{
+  background:linear-gradient(
+    90deg,
+    #4FD001,
+    #8FDA61
+    );
+}
+.blueBackground{
+  background:linear-gradient(
+    90deg,
+    #036DFC,
+    #6AA8FC
+    );
+}
+.newSchoolBackground{
+  color:white;
+  background:linear-gradient(
+    90deg,
+    #7D7D7E,
+    #C8C8C9
+    );
+}
 .blueIndicator {
-  color: blue;
+  background:linear-gradient(
+    90deg,
+    #036DFC,
+    #6AA8FC
+    );
+  /*color: blue;
   border-bottom: 2px blue solid;
-  border-top: 2px blue solid;
+  border-top: 2px blue solid;*/
   font-size:1.3em;
   /*font-weight: bold;*/
 }
 .grayIndicator {
-  color: gray;
-  border-bottom: 2px gray solid;
-  border-top: 2px gray solid;
+  color:white;
+  background:linear-gradient(
+    90deg,
+    #565656,
+    #a8a8a8
+    );
   font-size:1.3em;
 }
 .orangeIndicator {
-  color: orange;
-  border-bottom: 2px orange solid;
-  border-top: 2px orange solid;
+  background:linear-gradient(
+    90deg,
+    #F99802,
+    #FCAF39);
+  color: black;
+  /*border-bottom: 2px orange solid;
+  border-top: 2px orange solid;*/
   font-size:1.2em;
 }
 .yellowIndicator {
-  color: yellow;
-  background-color: #c9c7c7;
-  border-bottom: 2px yellow solid;
-  border-top: 2px yellow solid;
+  /*color: yellow;*/
+  /*background-color: #c9c7c7;*/
+  background:linear-gradient(
+    90deg,
+    #F5DF03,
+    #F5E43A
+    );
+  /*border-bottom: 2px yellow solid;
+  border-top: 2px yellow solid;*/
   font-size:1.3em;
 }
 .redIndicator {
@@ -262,7 +336,7 @@ nav {
     #FC5D50,
     #FD0701);
     color:black;
-    font-weight: bold;
+    /*font-weight: bold;*/
   /*border: 2px white solid;*/
   /*border-top: 2px white solid;*/
   font-size: 1.2em;
@@ -272,9 +346,14 @@ nav {
   /*color:white;*/
 }
 .greenIndicator {
-  color: green;
+  /*color: green;
   border-bottom: 2px green solid;
-  border-top: 2px green solid;
+  border-top: 2px green solid;*/
+  background:linear-gradient(
+    90deg,
+    #4FD001,
+    #8FDA61
+    );
   font-size:1.3em;
 }
 .cardName {
@@ -285,10 +364,14 @@ nav {
   font-size: 1.8em;
   letter-spacing: 0.02em;
   font-family:roboto;
-  color:white;
-
+  /*color:white;*/
   /*background-color: #5562FC  ;*/
 }
+/*#schoolCard a{
+  text-decoration: none;
+  color:
+
+}*/
 #addressGrade {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -421,28 +504,32 @@ nav {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightgreen;
+  margin-bottom:-6px;
+  /*background-color: lightgreen;*/
   /*border: 1px black solid;*/
   font-size: 1.25em;
   font-family: roboto;
-  background: linear-gradient(
+  border-bottom:1px black black;
+  /*background: linear-gradient(
     270deg,
     #FC5D50,
-    #FD0701);
+    #FD0701);*/
 }
 /*6th line of the school data card*/
 #equityCard {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: lightgray;
+  margin-top:-6px;
+  border-top:1px solid black;
+  /*background-color: lightgray;*/
   /*border: 1px solid black;*/
   font-size: 1.25em;
   font-family: roboto;
-  background: linear-gradient(
+  /*background: linear-gradient(
     270deg,
     #FC5D50,
-    #FD0701);
+    #FD0701);*/
 }
 #dataDate {
   display:flex;
@@ -532,7 +619,7 @@ nav {
   width:355px;
   background-color:white;
   box-shadow: 5px 0px 5px 0px rgba(156,154,156,0.83);
-  z-index:99;
+  /*z-index:99;*/
 }
 #sideBarTopRow{
   display:grid;
@@ -591,73 +678,34 @@ nav {
   align-items: center;
   justify-content: center;
 }
-.redBackground{
-  background: linear-gradient(
-    90deg,
-    #FC5D50,
-    #FD0701);
-}
-.orangeBackground{
-background:linear-gradient(
-  90deg,
-  #F99802,
-  #FCAF39)
-  ;
-}
-.yellowBackground{
-  background:linear-gradient(
-    90deg,
-    #F5DF03,
-    #F5E43A
-    );
-}
-.greenBackground{
-  background:linear-gradient(
-    90deg,
-    #4FD001,
-    #8FDA61
-    );
-}
-.blueBackground{
-  background:linear-gradient(
-    90deg,
-    #036DFC,
-    #6AA8FC
-    );
-}
-.newSchoolBackground{
-  background:linear-gradient(
-    90deg,
-    #7D7D7E,
-    #C8C8C9
-    );
-}
-/*a{
+
+#schoolCard a{
   display:flex;
   align-items: center;
-  justify-content: center;*/
+  justify-content: center;
   /*background:linear-gradient(
     270deg,
     #FC5D50,
     #FD0701
     );*/
-    /*margin-bottom:-11px;
-    border-top: 2px solid white;
+    margin-bottom:-11px;
+    /*border-top: 2px solid white;
     border-left: 2px solid white;
-    border-right: 2px solid white
+    border-right: 2px solid white;*/
+    color:white;
 }
-a:link {
+#schoolCard a:link {
   text-decoration: none;
-  color: black;
+  /*color: black;*/
 }
 
-a:visited {
-  color: black;
+#school Card a:visited {
+  /*color: black;*/
 }
 
-a:hover {
-  color: gray;
-}*/
+#schoolCard a:hover {
+  color: lightgray;
+}
 
 #data {
   display: flex;
@@ -693,10 +741,11 @@ nav div a{
   align-items: center;
   justify-content: center;
 }
-.btn-facebook, .btn-google, .btn-yahoo, .btn-twitter{
+.btn-facebook{
   display:flex;
   align-items: center;
   justify-content: center;
+  /*padding-top: 10px;*/
   height:40px;
   /*width:90%;*/
   font-family:raleway;
@@ -711,10 +760,75 @@ nav div a{
   justify-content: center;
   font-size: 1.8em;
 }
-#facebookA, #googleA, #yahooA, #twitterA{
+#facebookA{
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
+  /*padding-top:10px;*/
   width:200px;
+}
+.faqContainer{
+  position:absolute;
+  top:75px;
+  left:300px;
+  height:500px;
+  width:500px;
+  background-color: white;
+}
+
+.faqHeader{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  font-size: 0.9em;
+  padding-bottom:15px;
+  padding-top:15px;
+}
+.faqTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+/*padding-left:10px;*/
+padding-bottom:10px;
+font-size:0.8em;
+font-weight: bold;
+}
+.faqBody{
+  padding-left:15px;
+  padding-right:15px;
+  padding-bottom:10px;
+  font-size:0.7em;
+  line-height: 150%;
+}
+.strong{
+  font-weight: bold;
+  text-decoration: underline;
+}
+.grayText{
+  font-weight: bold;
+  color:gray;
+}
+
+.blueText{
+  color:blue;
+  font-weight: bold;
+}
+.greenText{
+  color:green;
+    font-weight: bold;
+}
+.orangeText{
+  color:orange;
+    font-weight: bold;
+}
+.yellowText{
+  color:yellow;
+  background-color:lightgray;
+    font-weight: bold;
+}
+.redText{
+  color:red;
+    font-weight: bold;
 }

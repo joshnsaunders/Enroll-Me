@@ -20,17 +20,25 @@
 </head>
 
 <body onload="initMap()">
-  <div id="fb-root"></div>
   <script>
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1396338423796632";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1396338423796632',
+        xfbml      : true,
+        version    : 'v2.10'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
   </script>
+
   <header>
     <nav class="navFoot">
       <div id="hamburger"><i class="dehaze material-icons">dehaze</i></div>
@@ -44,15 +52,17 @@
         <span id="leftcityBorder"></span>Denver<span id="rightcityBorder"></span>
       </div>
       <div id="navLogo" class="nav">Enroll Me</div>
-      <div id="faq" class="nav navLinks">FAQ</div>
+      <div id="faq" class="nav navLinks">FAQ
+        <div id="faqContainer"></div>
+      </div>
       <div id="auth">Sign In</div>
       <div id="socialLogIn">
         <a id="facebookA" href="https://warm-waters-71689.herokuapp.com/auth/facebook" class="btn btn-block btn-social btn-facebook">
           <span id="fLogo" class="buttonLogo fa fa-facebook"></span><span class='buttonText'>Sign in with Facebook</span>
         </a>
-        <a id="googleA" href="https://warm-waters-71689.herokuapp.com/auth/google" class="btn btn-block btn-social btn-google">
+        <!-- <a id="googleA" href="https://warm-waters-71689.herokuapp.com/auth/google" class="btn btn-block btn-social btn-google">
           <span id="gLogo" class="buttonLogo fa fa-google"></span><span class='buttonText'>Sign in with Google</span>
-        </a>
+        </a> -->
         <!-- <a id="twitterA" href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
         <span id="tLogo" class="buttonLogo fa fa-twitter"></span><span class='buttonText'>Sign in with Twitter</span>
         </a>

@@ -56,43 +56,59 @@ app.get('/auth/facebook', passport.authenticate('facebook', {
  }))
 
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: 'https://enrollme-4854d.firebaseapp.com/',
+  passport.authenticate('facebook', { successRedirect: '/',
                                       failureRedirect: '/login' }));
+
+app.get('/', function(request, response){
+    response.render('/index.html')
+    })
+
+app.get('/logout', function(request, response){
+    request.logout();
+    response.redirect('/');
+    });
+
+
+app.listen(port, function(){
+    console.log('listening on port ' + port);
+    });
+
+module.exports = app;
 
 // Use the GoogleStrategy within Passport.
 //   Strategies in passport require a `verify` function, which accept
 //   credentials (in this case, a token, tokenSecret, and Google profile), and
 //   invoke a callback with a user object.
-passport.use(new GoogleStrategy({
-clientID: '898385406882-7hd28m6gk0r55ab8hpo557p44hi8l9j4.apps.googleusercontent.com',
-consumerSecret: 'c5362Izz7omu6xnw3r-5_zcX',
-callbackURL: "https://enrollme-4854d.firebaseapp.com/auth/google/callback"
-},
-
-function(token, tokenSecret, profile, done) {
-console.log(profile);
-// User.findOrCreate({ googleId: profile.id }, function (err, user) {
-return done(err, user);
-}));
+// passport.use(new GoogleStrategy({
+// clientID: '898385406882-7hd28m6gk0r55ab8hpo557p44hi8l9j4.apps.googleusercontent.com',
+// consumerSecret: 'c5362Izz7omu6xnw3r-5_zcX',
+// callbackURL: "https://enrollme-4854d.firebaseapp.com/auth/google/callback"
+// },
+//
+// function(token, tokenSecret, profile, done) {
+// console.log(profile);
+// // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+// return done(err, user);
+// }));
 //
 // // GET /auth/google
 // //   Use passport.authenticate() as route middleware to authenticate the
 // //   request.  The first step in Google authentication will involve redirecting
 // //   the user to google.com.  After authorization, Google will redirect the user
 // //   back to this application at /auth/google/callback
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] }));
+// app.get('/auth/google',
+//   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 // // GET /auth/google/callback
 // //   Use passport.authenticate() as route middleware to authenticate the
 // //   request.  If authentication fails, the user will be redirected back to the
 // //   login page.  Otherwise, the primary route function function will be called,
 // //   which, in this example, will redirect the user to the home page.
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('https://enrollme-4854d.firebaseapp.com');
-  });
+// app.get('/auth/google/callback',
+//   passport.authenticate('google', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     res.redirect('https://enrollme-4854d.firebaseapp.com');
+//   });
 
 
 
@@ -119,9 +135,7 @@ app.get('/auth/google/callback',
 
 
 
-app.get('/', function(request, response){
-  response.render('/index.html')
-})
+
 
 // passport.use(new TwitterStrategy({
 //     consumerKey: TWITTER_CONSUMER_KEY,
@@ -147,13 +161,3 @@ app.get('/', function(request, response){
 // app.get('/auth/twitter/callback',
 //   passport.authenticate('twitter', { successRedirect: '/',
 //                                      failureRedirect: '/login' }));
-app.get('/logout', function(request, response){
-  request.logout();
-  response.redirect('/');
-});
-
-
-app.listen(port, function(){
-  console.log('listening on port ' + port);
-});
-module.exports = app;

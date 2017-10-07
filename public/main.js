@@ -1,13 +1,18 @@
 $(document).ready(function() {
-
+//      FB.getLoginStatus(function(response) {
+//        console.log(response);
+//     statusChangeCallback(response);
+//     console.log('facebook');
+// });
 })
-console.log("hello");
+
 
 
 import {
   schoolData,
   icons,
-  deft
+  deft,
+  denverFAQ
 } from './data.js';
 
 import * as spfData from './spfData.json';
@@ -64,7 +69,7 @@ console.log(schoolDataArray);
 //more accessible with main/sections/articles and other accessibility features
 $('#schoolCard').hide()
 $('#map').click(function() {
-  $('#schoolCard, #socialLogIn').hide()
+  $('#schoolCard, #socialLogIn, #faqContainer').hide()
 })
 $('#navCard').hide()
 $('#hamburger').click(function() {
@@ -84,7 +89,40 @@ $('#auth').click(function() {
   })
   // $('#socialLogIn').toggle('blind',options, 300)
 })
+$('#faq').click(function(){
+  showFaq(denverFAQ)
+})
 
+
+  function showFaq(faqData){
+    console.log(faqData);
+  $('#faqContainer').empty()
+  $('#faqContainer').css({
+    'display':'block',
+    'height':'250px',
+    'width':'450px',
+    'position':'absolute',
+    'top':'62px',
+    'right': '63px',
+    'background-color':'white',
+    'z-index':'99',
+    'overflow':'scroll',
+    '-webkit-box-shadow': '5px 5px 5px 0px rgba(120,119,120,0.67)',
+    '-moz-box-shadow': '5px 5px 5px 0px rgba(120,119,120,0.67)',
+    'box-shadow': '5px 5px 5px 0px rgba(120,119,120,0.67)',
+  })
+
+  $('#faqContainer').append(
+    '<div class=faqHeader>Frequently Asked Questions</div>'
+  )
+
+  for (var i=0;i<faqData.length;i++){
+    $('#faqContainer').append(
+      '<div class=faqTitle>' + faqData[i].title + '</div>' +
+      '<div class=faqBody>' + faqData[i].body + '</div>'
+    )
+  }
+}
 
 
 
@@ -157,6 +195,7 @@ function initMap() {
       }),
       name: schoolData[keys[i]]["name"],
       overallPercentage: schoolData[keys[i]]["percentage"],
+      cardHeaderColor:schoolData[keys[i]]["cardHeaderColor"],
       overallDescriptor: schoolData[keys[i]]["indicator"],
       grades: schoolData[keys[i]]["grades"],
       address: schoolData[keys[i]]["address"],
@@ -165,8 +204,10 @@ function initMap() {
       operator: schoolData[keys[i]]["operator"],
       parentSatisfactionPercentage: schoolData[keys[i]]["parentSatisfactionPercentage"],
       parentSatisfactionIndicator: schoolData[keys[i]]["parentSatisfactionIndicator"],
+      parentClass:schoolData[keys[i]]['parentClass'],
       equityPercentage: schoolData[keys[i]]["equityPercentage"],
       equityIndicator: schoolData[keys[i]]["equityIndicator"],
+      equityClass:schoolData[keys[i]]['equityClass'],
       enrollment: schoolData[keys[i]]["enrollment"],
       frl: schoolData[keys[i]]["frl"],
       soc: schoolData[keys[i]]["soc"],
@@ -194,7 +235,7 @@ function initMap() {
     google.maps.event.addListener(keys[i], 'click', function() {
 
       $('#schoolCard').html(
-          this["link"] + "<div class=" + this["cssName"] + ">" + this["name"] + '</div>' + "</a>" +
+          "<a class=" + "'" + this['cardHeaderColor'] + "' " + "href =" + this["link"] + "<div class=" + this["cssName"] + ">" + this["name"] + '</div>' + "</a>" +
 
           '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
 
@@ -205,9 +246,9 @@ function initMap() {
           "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
           "</div>" + "</div>" +
 
-          "<div id='parentSatisfactionCard'>" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
+          "<div id='parentSatisfactionCard'" + "class=" + '"' + this["parentClass"] + '"' + ">" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
 
-          "<div id='equityCard'>" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
+          "<div id='equityCard'" + "class=" + '"' + this["equityClass"] + '"' + ">" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
 
           // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
 
@@ -410,11 +451,9 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
-// $('#faq').delay(2000).text('perfor')
-// $('#auth').click(function(){
-//   $('#socialLogIn').css({
-//     'display':'grid',
-//   })
-// })
+
+
+
+
 
 window.initMap = initMap;
