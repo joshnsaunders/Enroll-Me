@@ -1,17 +1,22 @@
-# Enroll Me
+#
+Enroll Me
 A searchable map of Denver Public Schools focusing by performance
 
-##Tech Stack
+##
+Tech Stack
 Javascript, Jquery, CSS Grid, Webpack, Heroku, Facebook Javascript SDK, Firebase, Surge, Google Maps Utility Library, SVG
 
-##Data
+##
+Data
 The Data comes from DPS school performance framework for the 2015-2016 school year, as well as
 data about certain school programs available from the DPS website.
 
-##Performance Search
+##
+Performance Search
 DPS assigns colors to schools based on their performance. You can search the schools based on performance or grades using the checkboxes, or you can enter a search term in "Search Enroll Me" input on the header
 
-###Future Features
+###
+Future Features
 -Users will be able to save schools to their account using Facebook login
 -Users will be able to see enrollment zones overlayed on google Maps
 -Users will be able to see bus routes
