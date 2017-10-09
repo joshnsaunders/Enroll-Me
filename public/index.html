@@ -10,14 +10,15 @@
   <link href="bootstrap-social.css" type="text/css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Antic+Slab|Cabin|Cagliostro|Josefin+Sans|Julius+Sans+One|Kameron|News+Cycle|Raleway|Scope+One|Text+Me+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Antic+Slab|Cabin|Cagliostro|Josefin+Sans|Julius+Sans+One|Kameron|News+Cycle|Raleway|Scope+One|Text+Me+One|Fredericka+the+Great" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"> -->
 </head>
 
 <body onload="initMap()">
   <div id="fb-root"></div>
   <script>
+  const heroku = 'https://agile-thicket-97653.herokuapp.com'
     function statusChangeCallback(response) {
       if (response.status === 'connected') {
         $('#savedSchools').remove()
@@ -82,14 +83,14 @@
           var email = response['email']
           var name = response['name']
           var fid = response['id']
-          $.get('./info')
+          $.get(heroku + '/info')
             .then(function(data) {
               var emailArray = []
               for (var i = 0; i < data.length; i++) {
                 emailArray.push(data[i]['email'])
               }
               if (emailArray.some(x => email === x)) {} else {
-                $.post('./info', {
+                $.post(heroku + '/info', {
                     "email": email,
                     "name": name,
                     "Fid": fid,
