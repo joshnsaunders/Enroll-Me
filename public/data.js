@@ -3261,7 +3261,7 @@ export var schoolData = {
   northfield_high_school: {
     name: "Northfield High School",
     percentage: "50.4%",
-    cardHeaderColor: "greenBackground",
+    cardHeaderColor: "yellowBackground",
     indicator: "Accredited on Watch",
     grades: "9-12",
     address: "5500 Central Park Blvd.<br>Denver, CO 80238",
@@ -3928,8 +3928,8 @@ export var denverFAQ = [
     <br><span class=grayText>Gray</span> is for <span class=grayText>new schools</span> who don't have any student performance data, yet."
   },
   {
-    title:'How does DPS determine the scores?',
-    body:'A schools performance is determined mostly by <span class=strong>students academic performance</span> as measured by standardized tests. A variety of tests are used by DPS to determine this score.'
+    title:`How does DPS determine the scores?`,
+    body:`A schools performance is determined mostly by <span class=strong>students academic performance</span> as measured by standardized tests. A variety of tests are used by DPS to determine this score.`
   },
   {
     title:'Are the standardized tests reliable?',
@@ -3940,6 +3940,6 @@ export var denverFAQ = [
   {
     title:"What do the Accredited titles mean?",
     body:'Schools in these performance ranges scores put them on the lower end of performance and typically recieve more support from the DPS central office to help improve their student performance. \
-    Schools that are <span class=redText>Accredited on Probation</span> have been <span class=redText>closed</span> due to poor student outcomes and/or enrollment.'
+    Schools that are<span class=redText>Accredited on Probation</span> have been <span class=redText>closed</span> due to poor student outcomes and/or enrollment.'
   },
 ]

@@ -7,12 +7,8 @@
   <meta name="google-signin-client_id" content="898385406882-7hd28m6gk0r55ab8hpo557p44hi8l9j4.apps.googleusercontent.com	">
   <meta name="google-signin-client_id" content="898385406882-7hd28m6gk0r55ab8hpo557p44hi8l9j4.apps.googleusercontent.com">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <!-- Latest compiled and minified CSS -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
   <link href="bootstrap-social.css" type="text/css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?rd5re8"> -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Antic+Slab|Cabin|Cagliostro|Josefin+Sans|Julius+Sans+One|Kameron|News+Cycle|Raleway|Scope+One|Text+Me+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,25 +16,90 @@
 </head>
 
 <body onload="initMap()">
+  <div id="fb-root"></div>
   <script>
+    function statusChangeCallback(response) {
+      if (response.status === 'connected') {
+        $('#savedSchools').remove()
+        $('.authAndSchools').append(
+          `<div id="savedSchools">Your Schools</div>`
+        )
+        $('.authAndSchools').css({
+          'display': 'grid',
+          'grid-template-columns': '50% 50%',
+          'justify-content': 'center',
+          'align-items': 'center',
+        })
+        testAPI();
+      } else {
+
+        $('.authAndSchools').css({
+          'display': 'grid',
+          'grid-template-columns': '100%',
+          'justify-content': 'center',
+          'align-items': 'center',
+        })
+        $('#savedSchools').remove()
+      }
+    }
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '1396338423796632',
-        xfbml      : true,
-        version    : 'v2.10'
+        appId: '1396338423796632',
+        cookie: true, // enable cookies to allow the server to access
+        // the session
+        xfbml: true, // parse social plugins on this page
+        version: 'v2.8' // use graph api version 2.8
       });
-      FB.AppEvents.logPageView();
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
     };
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
+    function testAPI() {
+      FB.api('/me', {
+          locale: 'en_US',
+          fields: 'name, email'
+        },
+        function(response) {
+
+          var email = response['email']
+          var name = response['name']
+          var fid = response['id']
+          $.get('./info')
+            .then(function(data) {
+              var emailArray = []
+              for (var i = 0; i < data.length; i++) {
+                emailArray.push(data[i]['email'])
+              }
+              if (emailArray.some(x => email === x)) {} else {
+                $.post('./info', {
+                    "email": email,
+                    "name": name,
+                    "Fid": fid,
+                  })
+                  .then(function(data) {})
+              }
+            })
+        });
+    }
+  </script>
   <header>
     <nav class="navFoot">
       <div id="hamburger"><i class="dehaze material-icons">dehaze</i></div>
@@ -55,20 +116,8 @@
       <div id="faq" class="nav navLinks">FAQ
         <div id="faqContainer"></div>
       </div>
-      <div id="auth">Sign In</div>
-      <div id="socialLogIn">
-        <a id="facebookA" href="https://warm-waters-71689.herokuapp.com/auth/facebook" class="btn btn-block btn-social btn-facebook">
-          <span id="fLogo" class="buttonLogo fa fa-facebook"></span><span class='buttonText'>Sign in with Facebook</span>
-        </a>
-        <!-- <a id="googleA" href="https://warm-waters-71689.herokuapp.com/auth/google" class="btn btn-block btn-social btn-google">
-          <span id="gLogo" class="buttonLogo fa fa-google"></span><span class='buttonText'>Sign in with Google</span>
-        </a> -->
-        <!-- <a id="twitterA" href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
-        <span id="tLogo" class="buttonLogo fa fa-twitter"></span><span class='buttonText'>Sign in with Twitter</span>
-        </a>
-        <a id="yahooA" href="/auth/yahoo" class="btn btn-block btn-social btn-yahoo">
-        <span id="yLogo" class="buttonLogo fa fa-yahoo"></span><span class='buttonText'>Sign in with Yahoo</span>
-        </a> -->
+      <div class="authAndSchools">
+        <div id="fbookButton" class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState"></div>
       </div>
     </nav>
   </header>

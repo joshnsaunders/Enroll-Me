@@ -1,13 +1,6 @@
-$(document).ready(function() {
-//      FB.getLoginStatus(function(response) {
-//        console.log(response);
-//     statusChangeCallback(response);
-//     console.log('facebook');
-// });
-})
+// $(document).ready(function() {
 
-
-
+// })
 import {
   schoolData,
   icons,
@@ -18,27 +11,23 @@ import {
 import * as spfData from './spfData.json';
 import * as schoolInfoData from './schoolInfoData.json'
 
+
 var schoolDataArray = [];
 
 for (var i = 0; i < spfData.length; i++) {
   for (var j = 0; j < schoolInfoData.length; j++) {
     if (spfData[i]["School Number"] === schoolInfoData[j]["SchoolNumber"]) {
       schoolDataArray.push({
-        // position: schoolData[keys[i]]["position"],
         icon: icons["dpsDefaultTiny"],
         draggable: false,
         raiseOnDrag: false,
         map: map,
         labelContent: "school",
-        // // labelAnchor: new google.maps.Point(7.5, 18),
         labelClass: "tiny material-icons",
         labelStyle: {
           opacity: 0.75
         },
-        // color: spfData[i]["hover"],
-        // infoBox: new google.maps.InfoWindow({
         content: '<div><strong>' + spfData[i]["School Name"] + '</strong></div><div>' + schoolInfoData[j]["Phone"] + '</div>',
-        // }),
         number: spfData[i]["School Number"],
         name: spfData[i]["School Name"],
         overallPercentage: spfData[i]["% Earned Points"],
@@ -57,16 +46,13 @@ for (var i = 0; i < spfData.length; i++) {
         soc: spfData[i]["% Students of Color"],
         ell: spfData[i]["% ELL"],
         sped: spfData[i]["% SPED"],
-        // cssIndicator: schoolData[keys[i]]["cssIndicator"],
         cssName: "cardName",
         smallIcon: icons["dpsDefaultTiny"],
       })
     }
   }
 }
-console.log(schoolDataArray);
-//semi-colons!!!!
-//more accessible with main/sections/articles and other accessibility features
+//console.log(schoolDataArray);
 $('#schoolCard').hide()
 $('#map').click(function() {
   $('#schoolCard, #socialLogIn, #faqContainer').hide()
@@ -87,15 +73,13 @@ $('#auth').click(function() {
   $('#socialLogIn').css({
     'display':'grid',
   })
-  // $('#socialLogIn').toggle('blind',options, 300)
 })
 $('#faq').click(function(){
   showFaq(denverFAQ)
 })
 
-
   function showFaq(faqData){
-    console.log(faqData);
+  //  console.log(faqData);
   $('#faqContainer').empty()
   $('#faqContainer').css({
     'display':'block',
@@ -123,43 +107,8 @@ $('#faq').click(function(){
     )
   }
 }
-
-
-
-
 var keys = Object.keys(schoolData)
 var sideBarKey = deft
-
-// $('#schoolCard').html("<div class=" + sideBarKey["cssName"] + ">" + sideBarKey["link"] + sideBarKey["name"] + "</a>" + '</div>' +
-//
-//   '<div class="' + sideBarKey["cssIndicator"] + '">' + "<span id='titleDescriptor'>" + "DPS Assigned Grade" + "</span></div>" +
-//
-//   '<div id="addressGrade"><span id="gradesKeyCard">' + sideBarKey["grades"] + "</span>" +
-//
-//   "<span id='address'>" + sideBarKey["address"] + "</span>" +
-//
-//   "<span id='keyPercentage'>" + "DPS<br>Score" + "</span></div>" +
-//
-//   "<div id='phoneOperatorCard'><span id='phoneCard'>" + sideBarKey["phone"] + "</span>" +
-//
-//   "<span id='operatorCard'>" + sideBarKey["operator"] + "</span></div>" +
-//
-//   "<div id='parentSatisfactionCard'>Parent Satisfaction Grade & Percentage</div>" +
-//
-//   "<div id='equityCard'>" + "Equity Grade & Percentage" + "</div>" +
-//
-//   "<div id='enrollmentCard'>" + sideBarKey["enrollment"] + "</div>" +
-//
-//   "<div id='lunchColorCard'><span id='frlCard'>Free or Reduced Lunch</span>" +
-//   "<span id='socCard'>Students of Color</span></div>" +
-//
-//   "<div id='ellSpedCard'><span id='ellCard'>English Language Learners</span>" +
-//
-//   "<span id='spedCard'>Special Education</span></div>" +
-//
-//   "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>")
-
-
 
 function initMap() {
 
@@ -235,32 +184,30 @@ function initMap() {
     google.maps.event.addListener(keys[i], 'click', function() {
 
       $('#schoolCard').html(
-          "<a class=" + "'" + this['cardHeaderColor'] + "' " + "href =" + this["link"] + "<div class=" + this["cssName"] + ">" + this["name"] + '</div>' + "</a>" +
+          `<a class="${this['cardHeaderColor']}" href=${this["link"]} <div class="${this["cssName"]}">${this["name"]}</div></a>
 
-          '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
+          <div class="${this["cssIndicator"]}" id="nameCard"><span id='titleDescriptor'>${this["overallDescriptor"]} ${this["overallPercentage"]}</span></div>
 
-          '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span><span id='operatorCard'>" + this["operator"] + "</span></div>" +
+          <div id="addressGrade"><span id="gradesCard">${this["grades"]}</span><span id='operatorCard'>${this["operator"]}</span></div>
 
-          "<div id='phoneOperatorCard'><span id='addressCards'>" + this["address"] + "</span>" +
-          "<div id='phoneEnrollment'><span id='phoneCard'>" + this["phone"] + "</span>" +
-          "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
-          "</div>" + "</div>" +
+          <div id='phoneOperatorCard'><span id='addressCards'>${this["address"]}</span>
+          <div id='phoneEnrollment'><span id='phoneCard'>${this["phone"]}</span>
+          <span id='enrollmentCard'>Enrollment - ${this["enrollment"]}</span>
+          </div></div>
 
-          "<div id='parentSatisfactionCard'" + "class=" + '"' + this["parentClass"] + '"' + ">" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
+          <div id='parentSatisfactionCard' class="${this["parentClass"]}">Parent Satisfaction<br>${this["parentSatisfactionPercentage"]} ${this["parentSatisfactionIndicator"]}</div>
 
-          "<div id='equityCard'" + "class=" + '"' + this["equityClass"] + '"' + ">" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
+          <div id='equityCard' class="${this["equityClass"]}">Equity<br>${this["equityPercentage"]} ${this["equityIndicator"]}</div>
 
-          // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
+          <div id='lunchColorCard'><span id='frlCard'>Free or Reduced Lunch<br>${this["frl"]} </span>
+          <span id='socCard'>Students of Color<br>${this["soc"]}</span></div>
 
-          "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch" + '<br>' + this["frl"] + "</span>" +
-          "<span id='socCard'>" + "Students of Color" + '<br>' + this["soc"] + "</span></div>" +
+          <div id='ellSpedCard'><span id='ellCard'>English Language Learners<br>${this["ell"]}</span>
+          <span id='spedCard'>Special Education Students<br>${this["sped"]}</span></div>
 
-          "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners" + '<br>' + this["ell"] + "</span>" +
-          "<span id='spedCard'>" + "Special Education Students" + '<br>' + this["sped"] + "</span></div>" +
+          <div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>
 
-          "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>") +
-
-        "<div></div>";
+          <div></div>`);
 
       $('.exAll, #sbTitle, #scale').hide()
       $('#schoolCard').show()
@@ -271,10 +218,9 @@ function initMap() {
     changeIcon(zoomLevel)
   })
 
-
   function changeIcon(zoomlevelArray) {
     let iconKeys = Object.keys(icons)
-    console.log(iconKeys);
+  //  console.log(iconKeys);
     if (zoomlevelArray >= 14) {
       for (let i = 0; i < iconKeys.length; i++) {
         icons[iconKeys[i]]["scale"] = 0.7
@@ -288,7 +234,6 @@ function initMap() {
         icons[iconKeys[i]]["scale"] = 0.2
       }
     }
-
     for (var i = 0; i < keys.length; i++) {
       keys[i].setIcon(icons["dpsDefault"]);
       if (zoomlevelArray >= 14) {
@@ -308,7 +253,6 @@ function initMap() {
     searchLoop();
     return
   })
-
   $('#textInput').keydown(function(event) {
     if (event.keyCode == 13) {
       event.preventDefault();
@@ -316,7 +260,6 @@ function initMap() {
       return;
     }
   });
-
   function searchLoop() {
     var elemArray = [];
     var elemStop = [];
@@ -341,10 +284,8 @@ function initMap() {
         gradesStop.push("kLoopFalse")
       }
     })
-
     var gradesUniq = [...new Set(gradesArray)]
     var gradesStopUniq = [...new Set(gradesStop)]
-
     var bFalse = [];
     var bArray = [];
     if ($('#textInput').val().length > 0) {
@@ -356,7 +297,6 @@ function initMap() {
     //6 paramters, the stop paramets ,the checked parameters, and the data array for looping over the object.
     return
   }
-
   function buttonLogic(a, b, c, d, e, f) {
     var schools = Object.keys(schoolData)
 
@@ -443,17 +383,4 @@ function initMap() {
     }
   }
 }
-
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-
-
-
-
-
 window.initMap = initMap;

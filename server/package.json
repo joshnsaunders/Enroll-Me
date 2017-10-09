@@ -40,6 +40,7 @@
     "passport-twitter": "^1.0.4",
     "passport-yahoo": "^0.3.0",
     "passport-yahoo-oauth": "^0.1.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pg": "^7.3.0"
   }
 }

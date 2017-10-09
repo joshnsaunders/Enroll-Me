@@ -74,15 +74,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__spfData_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__spfData_json__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__);
-$(document).ready(function() {
-//      FB.getLoginStatus(function(response) {
-//        console.log(response);
-//     statusChangeCallback(response);
-//     console.log('facebook');
-// });
-})
+// $(document).ready(function() {
 
-
+// })
 
 
 
@@ -95,21 +89,16 @@ for (var i = 0; i < __WEBPACK_IMPORTED_MODULE_1__spfData_json__["length"]; i++) 
   for (var j = 0; j < __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__["length"]; j++) {
     if (__WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Number"] === __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["SchoolNumber"]) {
       schoolDataArray.push({
-        // position: schoolData[keys[i]]["position"],
         icon: __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* icons */]["dpsDefaultTiny"],
         draggable: false,
         raiseOnDrag: false,
         map: map,
         labelContent: "school",
-        // // labelAnchor: new google.maps.Point(7.5, 18),
         labelClass: "tiny material-icons",
         labelStyle: {
           opacity: 0.75
         },
-        // color: spfData[i]["hover"],
-        // infoBox: new google.maps.InfoWindow({
         content: '<div><strong>' + __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Name"] + '</strong></div><div>' + __WEBPACK_IMPORTED_MODULE_2__schoolInfoData_json__[j]["Phone"] + '</div>',
-        // }),
         number: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Number"],
         name: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["School Name"],
         overallPercentage: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% Earned Points"],
@@ -128,16 +117,13 @@ for (var i = 0; i < __WEBPACK_IMPORTED_MODULE_1__spfData_json__["length"]; i++) 
         soc: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% Students of Color"],
         ell: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% ELL"],
         sped: __WEBPACK_IMPORTED_MODULE_1__spfData_json__[i]["% SPED"],
-        // cssIndicator: schoolData[keys[i]]["cssIndicator"],
         cssName: "cardName",
         smallIcon: __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* icons */]["dpsDefaultTiny"],
       })
     }
   }
 }
-console.log(schoolDataArray);
-//semi-colons!!!!
-//more accessible with main/sections/articles and other accessibility features
+//console.log(schoolDataArray);
 $('#schoolCard').hide()
 $('#map').click(function() {
   $('#schoolCard, #socialLogIn, #faqContainer').hide()
@@ -158,15 +144,13 @@ $('#auth').click(function() {
   $('#socialLogIn').css({
     'display':'grid',
   })
-  // $('#socialLogIn').toggle('blind',options, 300)
 })
 $('#faq').click(function(){
   showFaq(__WEBPACK_IMPORTED_MODULE_0__data_js__["b" /* denverFAQ */])
 })
 
-
   function showFaq(faqData){
-    console.log(faqData);
+  //  console.log(faqData);
   $('#faqContainer').empty()
   $('#faqContainer').css({
     'display':'block',
@@ -194,43 +178,8 @@ $('#faq').click(function(){
     )
   }
 }
-
-
-
-
 var keys = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["d" /* schoolData */])
 var sideBarKey = __WEBPACK_IMPORTED_MODULE_0__data_js__["a" /* deft */]
-
-// $('#schoolCard').html("<div class=" + sideBarKey["cssName"] + ">" + sideBarKey["link"] + sideBarKey["name"] + "</a>" + '</div>' +
-//
-//   '<div class="' + sideBarKey["cssIndicator"] + '">' + "<span id='titleDescriptor'>" + "DPS Assigned Grade" + "</span></div>" +
-//
-//   '<div id="addressGrade"><span id="gradesKeyCard">' + sideBarKey["grades"] + "</span>" +
-//
-//   "<span id='address'>" + sideBarKey["address"] + "</span>" +
-//
-//   "<span id='keyPercentage'>" + "DPS<br>Score" + "</span></div>" +
-//
-//   "<div id='phoneOperatorCard'><span id='phoneCard'>" + sideBarKey["phone"] + "</span>" +
-//
-//   "<span id='operatorCard'>" + sideBarKey["operator"] + "</span></div>" +
-//
-//   "<div id='parentSatisfactionCard'>Parent Satisfaction Grade & Percentage</div>" +
-//
-//   "<div id='equityCard'>" + "Equity Grade & Percentage" + "</div>" +
-//
-//   "<div id='enrollmentCard'>" + sideBarKey["enrollment"] + "</div>" +
-//
-//   "<div id='lunchColorCard'><span id='frlCard'>Free or Reduced Lunch</span>" +
-//   "<span id='socCard'>Students of Color</span></div>" +
-//
-//   "<div id='ellSpedCard'><span id='ellCard'>English Language Learners</span>" +
-//
-//   "<span id='spedCard'>Special Education</span></div>" +
-//
-//   "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>")
-
-
 
 function initMap() {
 
@@ -306,32 +255,30 @@ function initMap() {
     google.maps.event.addListener(keys[i], 'click', function() {
 
       $('#schoolCard').html(
-          "<a class=" + "'" + this['cardHeaderColor'] + "' " + "href =" + this["link"] + "<div class=" + this["cssName"] + ">" + this["name"] + '</div>' + "</a>" +
+          `<a class="${this['cardHeaderColor']}" href=${this["link"]} <div class="${this["cssName"]}">${this["name"]}</div></a>
 
-          '<div class="' + this["cssIndicator"] + '"id="nameCard">' + "<span id='titleDescriptor'>" + this["overallDescriptor"] + " " + this["overallPercentage"] + "</span></div>" +
+          <div class="${this["cssIndicator"]}" id="nameCard"><span id='titleDescriptor'>${this["overallDescriptor"]} ${this["overallPercentage"]}</span></div>
 
-          '<div id="addressGrade"><span id="gradesCard">' + this["grades"] + "</span><span id='operatorCard'>" + this["operator"] + "</span></div>" +
+          <div id="addressGrade"><span id="gradesCard">${this["grades"]}</span><span id='operatorCard'>${this["operator"]}</span></div>
 
-          "<div id='phoneOperatorCard'><span id='addressCards'>" + this["address"] + "</span>" +
-          "<div id='phoneEnrollment'><span id='phoneCard'>" + this["phone"] + "</span>" +
-          "<span id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</span>" +
-          "</div>" + "</div>" +
+          <div id='phoneOperatorCard'><span id='addressCards'>${this["address"]}</span>
+          <div id='phoneEnrollment'><span id='phoneCard'>${this["phone"]}</span>
+          <span id='enrollmentCard'>Enrollment - ${this["enrollment"]}</span>
+          </div></div>
 
-          "<div id='parentSatisfactionCard'" + "class=" + '"' + this["parentClass"] + '"' + ">" + "Parent Satisfaction" + "<br>" + this["parentSatisfactionPercentage"] + this["parentSatisfactionIndicator"] + "</div>" +
+          <div id='parentSatisfactionCard' class="${this["parentClass"]}">Parent Satisfaction<br>${this["parentSatisfactionPercentage"]} ${this["parentSatisfactionIndicator"]}</div>
 
-          "<div id='equityCard'" + "class=" + '"' + this["equityClass"] + '"' + ">" + "Equity" + "<br>" + this["equityPercentage"] + this["equityIndicator"] + "</div>" +
+          <div id='equityCard' class="${this["equityClass"]}">Equity<br>${this["equityPercentage"]} ${this["equityIndicator"]}</div>
 
-          // "<div id='enrollmentCard'>" + "Enrollment - " + this["enrollment"] + "</div>" +
+          <div id='lunchColorCard'><span id='frlCard'>Free or Reduced Lunch<br>${this["frl"]} </span>
+          <span id='socCard'>Students of Color<br>${this["soc"]}</span></div>
 
-          "<div id='lunchColorCard'><span id='frlCard'>" + "Free or Reduced Lunch" + '<br>' + this["frl"] + "</span>" +
-          "<span id='socCard'>" + "Students of Color" + '<br>' + this["soc"] + "</span></div>" +
+          <div id='ellSpedCard'><span id='ellCard'>English Language Learners<br>${this["ell"]}</span>
+          <span id='spedCard'>Special Education Students<br>${this["sped"]}</span></div>
 
-          "<div id='ellSpedCard'><span id='ellCard'>" + "English Language Learners" + '<br>' + this["ell"] + "</span>" +
-          "<span id='spedCard'>" + "Special Education Students" + '<br>' + this["sped"] + "</span></div>" +
+          <div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>
 
-          "<div id='dataDate'>Data is from the DPS school performance framework for the 15-16 school year.</div>") +
-
-        "<div></div>";
+          <div></div>`);
 
       $('.exAll, #sbTitle, #scale').hide()
       $('#schoolCard').show()
@@ -342,10 +289,9 @@ function initMap() {
     changeIcon(zoomLevel)
   })
 
-
   function changeIcon(zoomlevelArray) {
     let iconKeys = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* icons */])
-    console.log(iconKeys);
+  //  console.log(iconKeys);
     if (zoomlevelArray >= 14) {
       for (let i = 0; i < iconKeys.length; i++) {
         __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* icons */][iconKeys[i]]["scale"] = 0.7
@@ -359,7 +305,6 @@ function initMap() {
         __WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* icons */][iconKeys[i]]["scale"] = 0.2
       }
     }
-
     for (var i = 0; i < keys.length; i++) {
       keys[i].setIcon(__WEBPACK_IMPORTED_MODULE_0__data_js__["c" /* icons */]["dpsDefault"]);
       if (zoomlevelArray >= 14) {
@@ -379,7 +324,6 @@ function initMap() {
     searchLoop();
     return
   })
-
   $('#textInput').keydown(function(event) {
     if (event.keyCode == 13) {
       event.preventDefault();
@@ -387,7 +331,6 @@ function initMap() {
       return;
     }
   });
-
   function searchLoop() {
     var elemArray = [];
     var elemStop = [];
@@ -412,10 +355,8 @@ function initMap() {
         gradesStop.push("kLoopFalse")
       }
     })
-
     var gradesUniq = [...new Set(gradesArray)]
     var gradesStopUniq = [...new Set(gradesStop)]
-
     var bFalse = [];
     var bArray = [];
     if ($('#textInput').val().length > 0) {
@@ -427,7 +368,6 @@ function initMap() {
     //6 paramters, the stop paramets ,the checked parameters, and the data array for looping over the object.
     return
   }
-
   function buttonLogic(a, b, c, d, e, f) {
     var schools = Object.keys(__WEBPACK_IMPORTED_MODULE_0__data_js__["d" /* schoolData */])
 
@@ -514,19 +454,6 @@ function initMap() {
     }
   }
 }
-
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-
-
-
-
-
 window.initMap = initMap;
 
 
@@ -3802,7 +3729,7 @@ var schoolData = {
   northfield_high_school: {
     name: "Northfield High School",
     percentage: "50.4%",
-    cardHeaderColor: "greenBackground",
+    cardHeaderColor: "yellowBackground",
     indicator: "Accredited on Watch",
     grades: "9-12",
     address: "5500 Central Park Blvd.<br>Denver, CO 80238",
@@ -4469,8 +4396,8 @@ var denverFAQ = [
     <br><span class=grayText>Gray</span> is for <span class=grayText>new schools</span> who don't have any student performance data, yet."
   },
   {
-    title:'How does DPS determine the scores?',
-    body:'A schools performance is determined mostly by <span class=strong>students academic performance</span> as measured by standardized tests. A variety of tests are used by DPS to determine this score.'
+    title:`How does DPS determine the scores?`,
+    body:`A schools performance is determined mostly by <span class=strong>students academic performance</span> as measured by standardized tests. A variety of tests are used by DPS to determine this score.`
   },
   {
     title:'Are the standardized tests reliable?',
@@ -4481,7 +4408,7 @@ var denverFAQ = [
   {
     title:"What do the Accredited titles mean?",
     body:'Schools in these performance ranges scores put them on the lower end of performance and typically recieve more support from the DPS central office to help improve their student performance. \
-    Schools that are <span class=redText>Accredited on Probation</span> have been <span class=redText>closed</span> due to poor student outcomes and/or enrollment.'
+    Schools that are<span class=redText>Accredited on Probation</span> have been <span class=redText>closed</span> due to poor student outcomes and/or enrollment.'
   },
 ]
 
