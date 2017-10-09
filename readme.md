@@ -17,5 +17,6 @@ DPS assigns colors to schools based on their performance. You can search the sch
 -Users will be able to see bus routes
 -Users will be able to search for new schools that don't have spf data yet
 -Users will be able to search by zip code
--Expand Enroll Me to cities surrounding Denver
 -Users will be able to search for schools that accept out of district students
+-Add all the DPS schools
+-Expand Enroll Me to cities surrounding Denver

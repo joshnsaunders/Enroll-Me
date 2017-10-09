@@ -12,9 +12,6 @@ var info_schools = require('./routes/info_schools')
 var info = require('./routes/info')
 var schools = require('./routes/schools')
 
-
-
-
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
