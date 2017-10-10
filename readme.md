@@ -1,8 +1,10 @@
 # Enroll Me
 Enroll Me is a searchable map of Denver Public Schools (DPS) allowing users to search by performance as well as a variety of other criteria like, elementary, middle or high schools. Enroll Me also provides a card with more publicly available performance data as well as school information.
 
+![Imgur](https://i.imgur.com/kdM6uZJ.png)
+
 ## Tech Stack
-Javascript, Jquery, CSS Grid, Webpack, Heroku, Facebook Javascript SDK, Firebase, Surge, Google Maps API and Utility Library, SVG
+Javascript, jQuery, CSS Grid, Webpack, Heroku, Facebook Javascript SDK, Firebase, Surge, Google Maps API and Utility Library, SVG
 
 ## Data
 The data comes from DPS performance framework for the 2015-2016 school year, as well as
