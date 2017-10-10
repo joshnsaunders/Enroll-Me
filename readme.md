@@ -1,6 +1,10 @@
 # Enroll Me
 Enroll Me is a searchable map of Denver Public Schools (DPS) allowing users to search by performance as well as a variety of other criteria like, elementary, middle or high schools. Enroll Me also provides a card with more publicly available performance data as well as school information.
 
+# Contact Info
+Email - joshnsaunders@gmail.com
+Phone - 207-213-0205
+
 ![Imgur](https://i.imgur.com/kdM6uZJ.png)
 ![Imgur](https://i.imgur.com/hYwqBl0.png)
 ## Tech Stack
